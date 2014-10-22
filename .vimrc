@@ -130,8 +130,8 @@ set tw=79  " width of document
 set nowrap " don't automatically wrap on load
 set fo-=t  " don't automatically wrap text when typing
 set colorcolumn=120
-highlight ColorColumn ctermbg=233 " wombat256mod
-" highlight ColorColumn ctermbg=255  " molokai
+"highlight ColorColumn ctermbg=233 " wombat256mod
+highlight ColorColumn ctermbg=240  " molokai
 
 " easier formatting of paragraphs
 vmap Q gp
