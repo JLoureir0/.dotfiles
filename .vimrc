@@ -8,20 +8,21 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'        "Vundle plugin manager
-Plugin 'Valloric/YouCompleteMe'   "Code completion engine for vim
-Plugin 'scrooloose/syntastic'     "Syntax checking hacks for vim
-Plugin 'bling/vim-airline'        "Vim status bar
-Plugin 'tpope/vim-fugitive'       "Vim plugin for git
-Plugin 'tpope/vim-surround'       "Plugin for tags
-Plugin 'tomasr/molokai'           "Molokai theme
-Plugin 'kien/ctrlp.vim'           "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'rking/ag.vim'             "Vim plugin for the_silver_searcher
-Plugin 'scrooloose/nerdcommenter' "Vim plugin for intensely orgasmic commenting
-Plugin 'SirVer/ultisnips'         "The ultimate snippet solution for Vim. 
-Plugin 'honza/vim-snippets'       "vim-snipmate default snippets
-Plugin 'mattn/webapi-vim'         "vim interface to Web API
-Plugin 'mattn/gist-vim'           "vimscript for gist
+Plugin 'gmarik/Vundle.vim'        " Vundle plugin manager
+Plugin 'Valloric/YouCompleteMe'   " Code completion engine for vim
+Plugin 'scrooloose/syntastic'     " Syntax checking hacks for vim
+Plugin 'bling/vim-airline'        " Vim status bar
+Plugin 'tpope/vim-fugitive'       " Vim plugin for git
+Plugin 'tpope/vim-surround'       " Plugin for tags
+Plugin 'tomasr/molokai'           " Molokai theme
+Plugin 'kien/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plugin 'rking/ag.vim'             " Vim plugin for the_silver_searcher
+Plugin 'scrooloose/nerdcommenter' " Vim plugin for intensely orgasmic commenting
+Plugin 'SirVer/ultisnips'         " The ultimate snippet solution for Vim.
+Plugin 'honza/vim-snippets'       " vim-snipmate default snippets
+Plugin 'mattn/webapi-vim'         " vim interface to Web API
+Plugin 'mattn/gist-vim'           " vimscript for gist
+Plugin 'majutsushi/tagbar'        " a class outline viewer for Vim
 
 call vundle#end()
 
@@ -216,7 +217,7 @@ map <leader>T :!clear && rspec spec/<cr>
 map <leader>Tn :call RunNearestTest()<cr>
 
 "YCM
-let g:ycm_key_invoke_completion = '<C-Space>'
+"let g:ycm_key_invoke_completion = '<C-Space>'
 
 "Syntastic
 let g:syntastic_enable_signs = 1
@@ -265,3 +266,8 @@ map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
 let g:UltiSnipsExpandTrigger='<c-e>'
 let g:UltiSnipsJumpForwardTrigger='<TAB>'
 let g:UltiSnipsJumpBackwardTrigger='<s-TAB>'
+
+" Tagbar
+noremap <F8> :TagbarToggle<CR>
+vnoremap <F8> <C-C>:TagbarToggle<CR>
+inoremap <F8> <C-O>:TagbarToggle<CR>
