@@ -30,6 +30,10 @@ call vundle#end()
 filetype plugin on
 filetype indent on
 
+" Enable syntax highlighting
+filetype off
+syntax on
+
 " Better copy & paste
 set pastetoggle=<F2>
 set clipboard=unnamedplus
@@ -77,6 +81,10 @@ autocmd FileType ruby map <leader>r :!clear && ruby %<cr>
 autocmd FileType python map <leader>r :!clear && python %<cr>
 autocmd FileType prolog map<leader>r :!clear && sicstus -l %<cr>
 
+" Better split opening
+set splitright
+set splitbelow
+
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -115,15 +123,11 @@ set t_Co=256
 " color vividchalk " u need to define the background black :)
 " color wombat256mod
 color molokai
+hi MatchParen cterm=bold ctermbg=none ctermfg=208 "Little tweak with the matching parents colors
 " color railscasts
 " color grb256
 " color gruvbox
 " color codeschool
-
-" Enable syntax highlighting
-filetype off
-filetype plugin indent on
-syntax on
 
 " Showing line numbers and length
 set number " show line numbers
