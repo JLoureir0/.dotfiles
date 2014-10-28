@@ -274,6 +274,10 @@ noremap <F8> :TagbarToggle<CR>
 vnoremap <F8> <C-C>:TagbarToggle<CR>
 inoremap <F8> <C-O>:TagbarToggle<CR>
 
+" Tabularize
+ nnoremap <leader>ta :Tabularize /
+ vnoremap <leader>ta <ESC>:Tabularize /
+
 " Nodejs-complete
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
