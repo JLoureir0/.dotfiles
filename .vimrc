@@ -8,21 +8,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'        " Vundle plugin manager
-Plugin 'Valloric/YouCompleteMe'   " Code completion engine for vim
-Plugin 'scrooloose/syntastic'     " Syntax checking hacks for vim
-Plugin 'bling/vim-airline'        " Vim status bar
-Plugin 'tpope/vim-fugitive'       " Vim plugin for git
-Plugin 'tpope/vim-surround'       " Plugin for tags
-Plugin 'tomasr/molokai'           " Molokai theme
-Plugin 'kien/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'rking/ag.vim'             " Vim plugin for the_silver_searcher
-Plugin 'scrooloose/nerdcommenter' " Vim plugin for intensely orgasmic commenting
-Plugin 'SirVer/ultisnips'         " The ultimate snippet solution for Vim.
-Plugin 'honza/vim-snippets'       " vim-snipmate default snippets
-Plugin 'mattn/webapi-vim'         " vim interface to Web API
-Plugin 'mattn/gist-vim'           " vimscript for gist
-Plugin 'majutsushi/tagbar'        " a class outline viewer for Vim
+Plugin 'gmarik/Vundle.vim'           " Vundle plugin manager
+Plugin 'Valloric/YouCompleteMe'      " Code completion engine for vim
+Plugin 'scrooloose/syntastic'        " Syntax checking hacks for vim
+Plugin 'bling/vim-airline'           " Vim status bar
+Plugin 'tpope/vim-fugitive'          " Vim plugin for git
+Plugin 'tpope/vim-surround'          " Plugin for tags
+Plugin 'tomasr/molokai'              " Molokai theme
+Plugin 'kien/ctrlp.vim'              " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plugin 'rking/ag.vim'                " Vim plugin for the_silver_searcher
+Plugin 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
+Plugin 'SirVer/ultisnips'            " The ultimate snippet solution for Vim.
+Plugin 'honza/vim-snippets'          " vim-snipmate default snippets
+Plugin 'mattn/webapi-vim'            " vim interface to Web API
+Plugin 'mattn/gist-vim'              " vimscript for gist
+Plugin 'majutsushi/tagbar'           " a class outline viewer for Vim
+Plugin 'godlygeek/tabular'           " Vim script for text filtering and alignment
+Plugin 'ahayman/vim-nodejs-complete' " nodejs 'omnifunc' function of vim
 
 call vundle#end()
 
@@ -67,19 +69,13 @@ noremap <Leader>E :qa!<CR> " Quit all windows
 set foldmethod=syntax
 set foldlevelstart=100
 
-" Code completion ctrl+space
-"inoremap <Nul> <C-x><C-o>
-"inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-			"\"\<lt>C-n>" :
-			"\"\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-			"\"\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-			"\"\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-"imap <C-@> <C-Space>
-
 " Run the code
 autocmd FileType ruby map <leader>r :!clear && ruby %<cr>
 autocmd FileType python map <leader>r :!clear && python %<cr>
 autocmd FileType prolog map<leader>r :!clear && sicstus -l %<cr>
+
+" Run tests for mochajs
+map <leader>tm :!clear && mocha<cr>
 
 " Better split opening
 set splitright
@@ -245,6 +241,8 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_sort_aggregated_errors = 0
 let g:syntastic_id_checkers = 1
 
+let g:syntastic_javascript_checkers = ['jshint']
+
 " Vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -268,10 +266,14 @@ map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
 
 " UltiSnips keybindings
 let g:UltiSnipsExpandTrigger='<c-e>'
-let g:UltiSnipsJumpForwardTrigger='<TAB>'
-let g:UltiSnipsJumpBackwardTrigger='<s-TAB>'
+let g:UltiSnipsJumpForwardTrigger='<DOWN>'
+let g:UltiSnipsJumpBackwardTrigger='<UP>'
 
 " Tagbar
 noremap <F8> :TagbarToggle<CR>
 vnoremap <F8> <C-C>:TagbarToggle<CR>
 inoremap <F8> <C-O>:TagbarToggle<CR>
+
+" Nodejs-complete
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
