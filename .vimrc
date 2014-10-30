@@ -160,6 +160,10 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Smoother scrolling
+:map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+:map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+
 " Run specs with ',t'
 function! RunTests(filename)
   " Write the file and run tests for the given filename
@@ -217,7 +221,8 @@ map <leader>T :!clear && rspec spec/<cr>
 map <leader>Tn :call RunNearestTest()<cr>
 
 "YCM
-"let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
 
 "Syntastic
 let g:syntastic_enable_signs = 1
@@ -266,8 +271,8 @@ map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
 
 " UltiSnips keybindings
 let g:UltiSnipsExpandTrigger='<c-e>'
-let g:UltiSnipsJumpForwardTrigger='<DOWN>'
-let g:UltiSnipsJumpBackwardTrigger='<UP>'
+let g:UltiSnipsJumpForwardTrigger='<TAB>'
+let g:UltiSnipsJumpBackwardTrigger='<s-TAB>'
 
 " Tagbar
 noremap <F8> :TagbarToggle<CR>
