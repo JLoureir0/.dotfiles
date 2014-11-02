@@ -8,23 +8,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'           " Vundle plugin manager
-Plugin 'Valloric/YouCompleteMe'      " Code completion engine for vim
-Plugin 'scrooloose/syntastic'        " Syntax checking hacks for vim
-Plugin 'bling/vim-airline'           " Vim status bar
-Plugin 'tpope/vim-fugitive'          " Vim plugin for git
-Plugin 'tpope/vim-surround'          " Plugin for tags
-Plugin 'tomasr/molokai'              " Molokai theme
-Plugin 'kien/ctrlp.vim'              " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'rking/ag.vim'                " Vim plugin for the_silver_searcher
-Plugin 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
-Plugin 'SirVer/ultisnips'            " The ultimate snippet solution for Vim.
-Plugin 'honza/vim-snippets'          " vim-snipmate default snippets
-Plugin 'mattn/webapi-vim'            " vim interface to Web API
-Plugin 'mattn/gist-vim'              " vimscript for gist
-Plugin 'majutsushi/tagbar'           " a class outline viewer for Vim
-Plugin 'godlygeek/tabular'           " Vim script for text filtering and alignment
-Plugin 'ahayman/vim-nodejs-complete' " nodejs 'omnifunc' function of vim
+Plugin 'gmarik/Vundle.vim'        " Vundle plugin manager
+Plugin 'Valloric/YouCompleteMe'   " Code completion engine for vim
+Plugin 'scrooloose/syntastic'     " Syntax checking hacks for vim
+Plugin 'bling/vim-airline'        " Vim status bar
+Plugin 'tpope/vim-fugitive'       " Vim plugin for git
+Plugin 'tpope/vim-surround'       " Plugin for tags
+Plugin 'tomasr/molokai'           " Molokai theme
+Plugin 'kien/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plugin 'rking/ag.vim'             " Vim plugin for the_silver_searcher
+Plugin 'scrooloose/nerdcommenter' " Vim plugin for intensely orgasmic commenting
+Plugin 'SirVer/ultisnips'         " The ultimate snippet solution for Vim.
+Plugin 'honza/vim-snippets'       " vim-snipmate default snippets
+Plugin 'mattn/webapi-vim'         " vim interface to Web API
+Plugin 'mattn/gist-vim'           " vimscript for gist
+Plugin 'majutsushi/tagbar'        " a class outline viewer for Vim
+Plugin 'godlygeek/tabular'        " Vim script for text filtering and alignment
+Plugin 'scrooloose/nerdtree'      " A tree explorer plugin for vim
 
 call vundle#end()
 
@@ -283,6 +283,13 @@ inoremap <F8> <C-O>:TagbarToggle<CR>
  nnoremap <leader>ta :Tabularize /
  vnoremap <leader>ta <ESC>:Tabularize /
 
-" Nodejs-complete
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+" NERDTree
+map <C-t> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 40
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDChristmasTree = 1
+let NERDTreeChDirMode = 2
+let NERDTreeMapJumpFirstChild = 'gK'
+let NERDTreeHighlightCursorline = 1 " Use cursorline
+let NERDTreeMapActivateNode='<CR>' " Use return/enter key
