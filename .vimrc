@@ -221,6 +221,12 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :!clear && rspec spec/<cr>
 map <leader>Tn :call RunNearestTest()<cr>
 
+                              """""""""""""""""""""""""""""""""""""""""""""""""""
+                              "                                                 "
+                              "                     Plugins                     "
+                              "                                                 "
+                              """""""""""""""""""""""""""""""""""""""""""""""""""
+
 "YCM
 let g:ycm_key_list_select_completion = ['<TAB>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
@@ -266,11 +272,9 @@ let g:gist_detect_filetype = 1 " Detect filetype
 let g:gist_open_browser_after_post = 1 " Open browser after the post
 map <leader>gi :Gist<cr>
 
-map Silver Searcher
+" Silver Searcher
 map <leader>a :Ag!<space>
-
-" search for word under cursor with Silver Searcher
-map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
+map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"<cr>
 
 " UltiSnips keybindings
 let g:UltiSnipsExpandTrigger='<c-e>'
