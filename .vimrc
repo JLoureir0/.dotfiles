@@ -100,7 +100,8 @@ vnoremap > >gv
 
 " map git commands
 map <leader>gs :!clear && git status -s<cr>
-map <leader>gr :!clear && git checkout -f<cr>
+map <leader>gr :!clear && git reset<space>
+map <leader>gR :!clear && git reset --hard<space>
 map <leader>gl :!clear && git log<cr>
 map <leader>gd :!clear && git diff<cr>
 map <leader>gc :!clear && git add -A . && git commit<cr>
