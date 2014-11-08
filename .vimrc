@@ -228,8 +228,9 @@ map <leader>Tn :call RunNearestTest()<cr>
                               """""""""""""""""""""""""""""""""""""""""""""""""""
 
 "YCM
-let g:ycm_key_list_select_completion = ['<TAB>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_always_populate_location_list = 1
+let g:ycm_open_loclist_on_ycm_diags = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Syntastic
 let g:syntastic_enable_signs = 1
@@ -266,6 +267,7 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = 'node_modules$'
+set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d
 
 " Gist plugin settings
 let g:gist_detect_filetype = 1 " Detect filetype
