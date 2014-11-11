@@ -50,6 +50,12 @@ set bs=2
 " Rebind <Leader> key
 let mapleader = ","
 
+"VIMRC
+map <leader>rc :vsplit $MYVIMRC<cr>
+
+" Extend path to find c++ headers and project's include folder
+set path+=/usr/include/c++/4.8.2,include/
+
 " Bind nohl
 " Removes highlight of your last search
 noremap <C-n> :nohl<CR>
