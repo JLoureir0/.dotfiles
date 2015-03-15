@@ -261,6 +261,7 @@ let g:syntastic_sort_aggregated_errors = 0
 let g:syntastic_id_checkers = 1
 
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_tex_checkers = ['lacheck']
 
 " Vim-airline
 set laststatus=2
