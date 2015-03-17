@@ -80,6 +80,9 @@ autocmd FileType ruby map <leader>r :!clear && ruby %<cr>
 autocmd FileType python map <leader>r :!clear && python %<cr>
 autocmd FileType prolog map<leader>r :!clear && sicstus -l %<cr>
 
+"Set fyletype of .tex to latex
+let g:tex_flavor='latex'
+
 " Run tests for mochajs
 map <leader>tm :!clear && mocha<cr>
 
