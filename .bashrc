@@ -135,6 +135,6 @@ export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64/
 export PATH=${PATH}:/home/eilkahn/opt/android-sdk-linux/platform-tools:/home/eilkahn/opt/android-sdk-linux/tools
 
 #useful
-alias vimrc='vim ~/.vimrc'
-alias bashrc='vim ~/.bashrc'
-alias tmuxconf='vim ~/.tmux.conf'
+alias vimrc='vim ~/DotFiles/.vimrc'
+alias bashrc='vim ~/DotFiles/.bashrc'
+alias tmuxconf='vim ~/DotFiles/.tmux.conf'

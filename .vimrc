@@ -51,7 +51,7 @@ set bs=2
 let mapleader = ","
 
 "VIMRC
-map <leader>rc :vsplit $MYVIMRC<cr>
+map <leader>rc :vsplit ~/DotFiles/.vimrc<cr>
 
 " Extend path to find c++ headers and project's include folder
 set path+=/usr/include/c++/4.8.2,include/
