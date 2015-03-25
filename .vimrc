@@ -25,6 +25,7 @@ Plugin 'mattn/gist-vim'           " vimscript for gist
 Plugin 'majutsushi/tagbar'        " a class outline viewer for Vim
 Plugin 'godlygeek/tabular'        " Vim script for text filtering and alignment
 Plugin 'scrooloose/nerdtree'      " A tree explorer plugin for vim
+Plugin 'danro/rename.vim'         " Rename current file
 
 call vundle#end()
 
