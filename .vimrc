@@ -109,17 +109,17 @@ vnoremap < <gv
 vnoremap > >gv
 
 " map git commands
-map <leader>gs :!clear && git status -s<cr>
-map <leader>gr :!clear && git reset<space>
-map <leader>gR :!clear && git reset --hard<space>
-map <leader>gl :!clear && git log<cr>
-map <leader>gd :!clear && git diff<cr>
-map <leader>gc :!clear && git add -A . && git commit<cr>
-map <leader>gp :!clear && git push -u origin master<cr>
+map <leader>gs  :!clear && git status -s<cr>
+map <leader>gr  :!clear && git reset<space>
+map <leader>gR  :!clear && git reset --hard<space>
+map <leader>gl  :!clear && git log<cr>
+map <leader>gd  :!clear && git diff<cr>
+map <leader>gc  :!clear && git add -A . && git commit<cr>
+map <leader>gp  :!clear && git push -u origin master<cr>
 map <leader>gpl :!clear && git pull<cr>
-map <leader>gb :!clear && git checkout -b<space>
-map <leader>gx :!clear && git checkout<space>
-map <leader>gm :!clear && git merge<space>
+map <leader>gb  :!clear && git checkout -b<space>
+map <leader>gx  :!clear && git checkout<space>
+map <leader>gm  :!clear && git merge<space>
 
 " Show whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -295,7 +295,7 @@ let g:UltiSnipsJumpForwardTrigger='<TAB>'
 let g:UltiSnipsJumpBackwardTrigger='<s-TAB>'
 
 " Tagbar
-noremap <F8> :TagbarToggle<CR>
+noremap  <F8> :TagbarToggle<CR>
 vnoremap <F8> <C-C>:TagbarToggle<CR>
 inoremap <F8> <C-O>:TagbarToggle<CR>
 
