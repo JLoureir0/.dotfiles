@@ -1,6 +1,8 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+set shell=bash
+
 set nocompatible
 filetype off
 
@@ -77,15 +79,15 @@ set foldmethod=syntax
 set foldlevelstart=100
 
 " Run the code
-autocmd FileType ruby map <leader>r :!clear ; and  ruby %<cr>
-autocmd FileType python map <leader>r :!clear ; and  python %<cr>
-autocmd FileType prolog map<leader>r :!clear ; and  sicstus -l %<cr>
+autocmd FileType ruby map <leader>r :!clear && ruby %<cr>
+autocmd FileType python map <leader>r :!clear && python %<cr>
+autocmd FileType prolog map<leader>r :!clear && sicstus -l %<cr>
 
 "Set fyletype of .tex to latex
 let g:tex_flavor='latex'
 
 " Run tests for mochajs
-map <leader>tm :!clear ; and  mocha<cr>
+map <leader>tm :!clear && mocha<cr>
 
 " Better split opening
 set splitright
@@ -109,17 +111,17 @@ vnoremap < <gv
 vnoremap > >gv
 
 " map git commands
-map <leader>gs  :!clear ; and  git status -s<cr>
-map <leader>gr  :!clear ; and  git reset<space>
-map <leader>gR  :!clear ; and  git reset --hard<space>
-map <leader>gl  :!clear ; and  git log<cr>
-map <leader>gd  :!clear ; and  git diff<cr>
-map <leader>gc  :!clear ; and  git add -A . && git commit<cr>
-map <leader>gp  :!clear ; and  git push -u origin master<cr>
-map <leader>gpl :!clear ; and  git pull<cr>
-map <leader>gb  :!clear ; and  git checkout -b<space>
-map <leader>gx  :!clear ; and  git checkout<space>
-map <leader>gm  :!clear ; and  git merge<space>
+map <leader>gs  :!clear && git status -s<cr>
+map <leader>gr  :!clear && git reset<space>
+map <leader>gR  :!clear && git reset --hard<space>
+map <leader>gl  :!clear && git log<cr>
+map <leader>gd  :!clear && git diff<cr>
+map <leader>gc  :!clear && git add -A . && git commit<cr>
+map <leader>gp  :!clear && git push -u origin master<cr>
+map <leader>gpl :!clear && git pull<cr>
+map <leader>gb  :!clear && git checkout -b<space>
+map <leader>gx  :!clear && git checkout<space>
+map <leader>gm  :!clear && git merge<space>
 
 " Show whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -228,7 +230,7 @@ endfunction
 
 " run test runner
 map <leader>t :call RunTestFile()<cr>
-map <leader>T :!clear ; and  rspec spec/<cr>
+map <leader>T :!clear && rspec spec/<cr>
 map <leader>Tn :call RunNearestTest()<cr>
 
                               """""""""""""""""""""""""""""""""""""""""""""""""""
