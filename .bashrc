@@ -141,4 +141,4 @@ alias tmuxconf='vim ~/DotFiles/.tmux.conf'
 alias tmux="tmux -2"
 # Opens terminal with tmux - This snippet ensures that tmux is not launched inside of itself
 [[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux new -As hack
+[[ -z "$TMUX" ]] && tmux new -As hack
