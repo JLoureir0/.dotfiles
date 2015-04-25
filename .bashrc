@@ -113,8 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#tmux
-alias tmux="tmux -2"
 
 #git branch
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
@@ -138,3 +136,9 @@ export PATH=${PATH}:/home/eilkahn/opt/android-sdk-linux/platform-tools:/home/eil
 alias vimrc='vim ~/DotFiles/.vimrc'
 alias bashrc='vim ~/DotFiles/.bashrc'
 alias tmuxconf='vim ~/DotFiles/.tmux.conf'
+
+#tmux
+alias tmux="tmux -2"
+# Opens terminal with tmux - This snippet ensures that tmux is not launched inside of itself
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux new -As hack
