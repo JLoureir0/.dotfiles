@@ -52,4 +52,4 @@ end
 
 #tmux
 alias tmux="tmux -2"
-tmux new -As hack
+tmux new -As HACK
