@@ -50,6 +50,12 @@ function fish_prompt --description 'Write out the prompt'
     end
 end
 
+#Add android tools to path
+set -gx PATH $PATH /home/eilkahn/opt/android-sdk-linux/platform-tools /home/eilkahn/opt/android-sdk-linux/tools
+
+#ANDROID_HOME
+set -x ANDROID_HOME $HOME/opt/android-sdk-linux
+
 #tmux
 alias tmux="tmux -2"
 tmux new -As HACK
