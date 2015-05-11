@@ -9,6 +9,9 @@ alias bashrc='vim ~/DotFiles/.bashrc'
 alias tmuxconf='vim ~/DotFiles/.tmux.conf'
 alias fishconf='vim ~/DotFiles/config.fish'
 
+#tree with ls colors
+alias tree='tree -C'
+
 set fish_greeting ""
 
 function fish_prompt --description 'Write out the prompt'
