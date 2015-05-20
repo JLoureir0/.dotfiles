@@ -280,7 +280,7 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = 'node_modules$'
-set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d
+set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d,*.pyc
 
 " Gist plugin settings
 let g:gist_detect_filetype = 1 " Detect filetype
