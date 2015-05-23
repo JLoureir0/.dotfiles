@@ -119,7 +119,7 @@ map <leader>gr  :!clear && git reset<space>
 map <leader>gR  :!clear && git reset --hard<space>
 map <leader>gl  :!clear && git log<cr>
 map <leader>gd  :!clear && git diff<cr>
-map <leader>gc  :!clear && git add -A . && git commit<cr>
+map <leader>gc  :!clear && git add -A . && git commit --verbose<cr>
 map <leader>gp  :!clear && git push -u origin master<cr>
 map <leader>gpl :!clear && git pull<cr>
 map <leader>gb  :!clear && git checkout -b<space>
