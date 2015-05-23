@@ -89,6 +89,9 @@ let g:tex_flavor='latex'
 " Run tests for mochajs
 map <leader>tm :!clear && mocha<cr>
 
+" Run tests for nose
+map <leader>tn :!clear && nosetests --rednose<cr>
+
 " Better split opening
 set splitright
 set splitbelow
