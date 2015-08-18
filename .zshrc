@@ -85,9 +85,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR="vim"
+export BROWSER="luakit"
 
 #Config files
-alias vimrc="vim ~/dotFiles/.vimrc"
-alias zshrc="vim ~/dotFiles/.zshrc"
-alias szsh="source ~/.zshrc"
-alias rclua="vim ~/dotFiles/rc.lua"
+alias eV="vim ~/dotFiles/.vimrc"
+alias eZ="vim ~/dotFiles/.zshrc"
+alias sZ="source ~/.zshrc"
+alias eA="vim ~/dotFiles/rc.lua"
+
+#Apps
+alias hogs="sudo nethogs wlp3s0"

@@ -57,7 +57,7 @@ end
 
 run_once("urxvtd")
 run_once("xbindkeys")
-run_once("xscreensaver")
+run_once("xscreensaver -no-splash")
 run_once("xss-lock -- xscreensaver-command -lock")
 run_once("skype")
 
@@ -76,7 +76,8 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "google-chrome-stable"
+--browser    = "google-chrome-stable"
+browser    = "luakit"
 gui_editor = "gvim"
 graphics   = "gimp"
 musicplr   = terminal .. " -e ncmpcpp "
