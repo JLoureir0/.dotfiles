@@ -95,3 +95,6 @@ alias eA="vim ~/dotFiles/rc.lua"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"
+
+#Games
+alias mario="mupen64plus --windowed ~/roms/N64/SuperMario64.v64"
