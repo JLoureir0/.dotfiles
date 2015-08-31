@@ -100,8 +100,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " 1-WEB ", " 2-PAC ", " 3-NEWS ", " 4-IRC ", " 5-MUS ", " 6-PIR ", " 7-MOV ", " 8-GAM ", " 9-MISC " },
-   layout = { layouts[10], layouts[2], layouts[8], layouts[10], layouts[4], layouts[5], layouts[10], layouts[1], layouts [1] }
+   names = { " 1-WEB ", " 2-PAC ", " 3-NEWS ", " 4-IRC ", " 5-PROG ", " 6-PIR ", " 7-MED ", " 8-GAM ", " 9-MISC " },
+   layout = { layouts[10], layouts[2], layouts[8], layouts[10], layouts[10], layouts[5], layouts[10], layouts[10], layouts [1] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -486,7 +486,7 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey }, "p", function() os.execute("screenshot") end),
 
     -- Lock screen
-    awful.key({ altkey, "Control" }, "l", function() os.execute("xscreensaver-command -lock") end),
+    awful.key({ "Control", altkey }, "l", function() os.execute("xscreensaver-command -lock") end),
 
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
