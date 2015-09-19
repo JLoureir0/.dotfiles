@@ -76,8 +76,8 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
---browser    = "google-chrome-stable"
-browser    = "luakit"
+browser    = "google-chrome-stable"
+--browser    = "luakit"
 gui_editor = "gvim"
 graphics   = "gimp"
 musicplr   = terminal .. " -e ncmpcpp "
