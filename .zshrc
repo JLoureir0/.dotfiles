@@ -87,6 +87,15 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 export BROWSER="luakit"
 
+#ssh agent and ssh add
+if ! pgrep ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval $(<~/.ssh-agent-thing)
+fi
+ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
 #Config files
 alias eV="vim ~/dotFiles/.vimrc"
 alias eZ="vim ~/dotFiles/.zshrc"
