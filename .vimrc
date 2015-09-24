@@ -242,6 +242,9 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :!clear && rspec spec/<cr>
 map <leader>Tn :call RunNearestTest()<cr>
 
+" ctags
+noremap <leader>c :!clear && ctags --extra=+f --fields=+l -R .<cr>
+
                               """""""""""""""""""""""""""""""""""""""""""""""""""
                               "                                                 "
                               "                     Plugins                     "
