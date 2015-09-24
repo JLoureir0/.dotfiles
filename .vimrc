@@ -28,6 +28,8 @@ Plugin 'majutsushi/tagbar'        " a class outline viewer for Vim
 Plugin 'godlygeek/tabular'        " Vim script for text filtering and alignment
 Plugin 'scrooloose/nerdtree'      " A tree explorer plugin for vim
 Plugin 'danro/rename.vim'         " Rename current file
+Plugin 'Chiel92/vim-autoformat'   " Provide easy code formatting in Vim
+Plugin 'marijnh/tern_for_vim'     " Tern plugin for Vim
 
 call vundle#end()
 
@@ -308,8 +310,8 @@ vnoremap <F8> <C-C>:TagbarToggle<CR>
 inoremap <F8> <C-O>:TagbarToggle<CR>
 
 " Tabularize
- nnoremap <leader>ta :Tabularize /
- vnoremap <leader>ta <ESC>:Tabularize /
+nnoremap <leader>ta :Tabularize /
+vnoremap <leader>ta <ESC>:Tabularize /
 
 " NERDTree
 map <C-t> :NERDTreeToggle<CR>
@@ -321,3 +323,6 @@ let NERDTreeChDirMode = 2
 let NERDTreeMapJumpFirstChild = 'gK'
 let NERDTreeHighlightCursorline = 1 " Use cursorline
 let NERDTreeMapActivateNode='<CR>' " Use return/enter key
+
+" Autoformat
+noremap <leader>f :Autoformat <CR>
