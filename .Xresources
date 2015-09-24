@@ -1,0 +1,77 @@
+! vim: set filetype=xdefaults :
+
+URxvt.perl-ext-common : default,keyboard-select,url-select,clipboard
+
+!URxvt.keysym.M-x           : perl:keyboard-select:activate
+!URxvt.keysym.M-u           : perl:url-select:select_next
+!URxvt.keysym.M-c           : perl:clipboard:copy
+!URxvt.keysym.M-v           : perl:clipboard:paste
+!URxvt.keysym.M-s           : perl:keyboard-select:search
+!URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
+URxvt.url-select.launcher  : google-chrome-stable
+!URxvt.url-select.launcher  : luakit
+!URxvt.url-select.autocopy  : true
+!URxvt.url-select.underline : true
+
+URxvt.geometry  : 119x45
+
+URxvt.font        : xft:Dejavu Sans Mono for PowerLine:pixelsize=10
+URxvt.letterSpace : -2
+URxvt.termName    : rxvt-256color
+URxvt.iso14755    : false
+
+URxvt.urgentOnBell: true
+
+URxvt.saveLines   : 12000
+URxvt.scrollBar   : false
+URxvt.scrollstyle : rxvt
+
+!Solarized + tangerine + random colours
+URxvt.cursorColor : #61D068
+URxvt*cursorBlink : true
+
+URxvt.pointerColorBackground : #586E75
+URxvt.pointerColorForeground : #00FF00
+
+URxvt.Depth        : 32
+URxvt.background   : #404040
+URxvt.foreground   : #D8D9D9
+URxvt*.transparent : True
+URxvt*.shading     : 10
+
+URxvt.colorBD : #FFFFFF
+URxvt.colorUL : #CCCC66
+
+! black
+URxvt.color0  : #2E3436
+URxvt.color8  : #555753
+
+! red
+!URxvt.color1  : #9e1828
+!URxvt.color9  : #cf6171
+URxvt.color1  : #e60000
+URxvt.color9  : #ff0000
+
+! green
+URxvt.color2  : #aece92
+URxvt.color10 : #c5f779
+
+! yellow
+URxvt.color3  : #968a38
+URxvt.color11 : #fff796
+
+! blue
+URxvt.color4  : #5454FF
+URxvt.color12 : #7A5ADA
+
+! magenta
+URxvt.color5  : #963c59
+URxvt.color13 : #cf9ebe
+
+! cyan
+URxvt.color6  : #418179
+URxvt.color14 : #71bebe
+
+! white
+URxvt.color7  : #bebebe
+URxvt.color15 : #ffffff
