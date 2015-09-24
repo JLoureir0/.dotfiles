@@ -93,6 +93,7 @@ alias eV="vim ~/dotFiles/.vimrc"
 alias eZ="vim ~/dotFiles/.zshrc"
 alias sZ="source ~/.zshrc"
 alias eA="vim ~/dotFiles/rc.lua"
+alias eX="vim ~/dotFiles/.Xresources"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"
