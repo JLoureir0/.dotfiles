@@ -84,6 +84,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#LS_COLORS defined
+eval $(dircolors ~/.dir_colors)
+
+#Ambient Variables
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
