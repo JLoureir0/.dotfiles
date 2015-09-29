@@ -50,6 +50,7 @@ end
 
 run_once("urxvtd")
 run_once("unclutter -root")
+run_once("compton --backend glx --paint-on-overlay --vsync opengl-swc")
 run_once("xbindkeys")
 run_once("xscreensaver -no-splash")
 run_once("xss-lock -- xscreensaver-command -lock")
@@ -442,12 +443,12 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
 
     -- Default client focus
-    awful.key({ altkey }, "Tab",
+    awful.key({ modkey }, "Tab",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ altkey, "Shift" }, "Tab",
+    awful.key({ modkey, "Shift" }, "Tab",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
@@ -493,7 +494,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ altkey,           }, "backslash",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
