@@ -149,7 +149,7 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=208 "Little tweak with the matchin
 
 " Showing line numbers and length
 set number " show line numbers
-set tw=79  " width of document
+set tw=120 " width of document
 set nowrap " don't automatically wrap on load
 set fo-=t  " don't automatically wrap text when typing
 set colorcolumn=120
