@@ -75,6 +75,7 @@ browser    = "google-chrome-stable"
 im         = "skype"
 gui_editor = "idea.sh"
 graphics   = "gimp"
+steam      = "steam"
 mail       = terminal .. " -e mutt "
 
 local layouts = {
@@ -575,7 +576,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
     awful.key({ modkey }, "i", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "s", function () awful.util.spawn(im) end),
-    awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
+    awful.key({ modkey }, "g", function () awful.util.spawn(steam) end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
