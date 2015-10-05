@@ -101,6 +101,7 @@ alias eX="vim ~/dotFiles/.Xresources"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"
+alias pms="/home/eilkahn/opt/pms/mps"
 
 #Games
 alias mario="mupen64plus --windowed ~/roms/N64/SuperMario64.v64"
