@@ -1,8 +1,6 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
-set shell=bash
-
 set nocompatible
 filetype off
 
@@ -10,27 +8,28 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'            " Vundle plugin manager
-Plugin 'Valloric/YouCompleteMe'       " Code completion engine for vim
-Plugin 'scrooloose/syntastic'         " Syntax checking hacks for vim
-Plugin 'bling/vim-airline'            " Vim status bar
-Plugin 'tpope/vim-fugitive'           " Vim plugin for git
-Plugin 'tpope/vim-surround'           " Plugin for tags
-Plugin 'tomasr/molokai'               " Molokai theme
-Plugin 'kien/ctrlp.vim'               " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'rking/ag.vim'                 " Vim plugin for the_silver_searcher
-Plugin 'scrooloose/nerdcommenter'     " Vim plugin for intensely orgasmic commenting
-Plugin 'SirVer/ultisnips'             " The ultimate snippet solution for Vim.
-Plugin 'honza/vim-snippets'           " vim-snipmate default snippets
-Plugin 'mattn/webapi-vim'             " vim interface to Web API
-Plugin 'mattn/gist-vim'               " vimscript for gist
-Plugin 'majutsushi/tagbar'            " a class outline viewer for Vim
-Plugin 'godlygeek/tabular'            " Vim script for text filtering and alignment
-Plugin 'scrooloose/nerdtree'          " A tree explorer plugin for vim
-Plugin 'danro/rename.vim'             " Rename current file
-Plugin 'Chiel92/vim-autoformat'       " Provide easy code formatting in Vim
-Plugin 'marijnh/tern_for_vim'         " Tern plugin for Vim
-Plugin 'jelera/vim-javascript-syntax' " Enhanced javascript syntax
+Plugin 'gmarik/Vundle.vim'                " Vundle plugin manager
+Plugin 'Valloric/YouCompleteMe'           " Code completion engine for vim
+Plugin 'scrooloose/syntastic'             " Syntax checking hacks for vim
+Plugin 'bling/vim-airline'                " Vim status bar
+Plugin 'tpope/vim-fugitive'               " Vim plugin for git
+Plugin 'tpope/vim-surround'               " Plugin for tags
+Plugin 'tomasr/molokai'                   " Molokai theme
+Plugin 'altercation/vim-colors-solarized' " Solarized theme
+Plugin 'kien/ctrlp.vim'                   " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plugin 'rking/ag.vim'                     " Vim plugin for the_silver_searcher
+Plugin 'scrooloose/nerdcommenter'         " Vim plugin for intensely orgasmic commenting
+Plugin 'SirVer/ultisnips'                 " The ultimate snippet solution for Vim.
+Plugin 'honza/vim-snippets'               " vim-snipmate default snippets
+Plugin 'mattn/webapi-vim'                 " vim interface to Web API
+Plugin 'mattn/gist-vim'                   " vimscript for gist
+Plugin 'majutsushi/tagbar'                " a class outline viewer for Vim
+Plugin 'godlygeek/tabular'                " Vim script for text filtering and alignment
+Plugin 'scrooloose/nerdtree'              " A tree explorer plugin for vim
+Plugin 'danro/rename.vim'                 " Rename current file
+Plugin 'Chiel92/vim-autoformat'           " Provide easy code formatting in Vim
+Plugin 'marijnh/tern_for_vim'             " Tern plugin for Vim
+Plugin 'jelera/vim-javascript-syntax'     " Enhanced javascript syntax
 
 call vundle#end()
 
@@ -46,8 +45,8 @@ syntax on
 set pastetoggle=<F2>
 set clipboard=unnamedplus
 
-" Set dark mode for gruvbox
-"set bg=dark    " Setting dark mode
+" Background
+set background=dark
 
 " Mouse and backspace
 set mouse=a
@@ -137,10 +136,11 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\(\s\+$\)\|\(^\n$\)/
 
 " Color scheme
-set t_Co=256
+"set t_Co=256
 " color vividchalk " u need to define the background black :)
 " color wombat256mod
-color molokai
+"color molokai
+colorscheme solarized
 hi MatchParen cterm=bold ctermbg=none ctermfg=208 "Little tweak with the matching parents colors
 " color railscasts
 " color grb256

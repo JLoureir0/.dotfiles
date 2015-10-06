@@ -15,10 +15,12 @@ URxvt.url-select.launcher  : google-chrome-stable
 
 URxvt.geometry  : 119x45
 
-URxvt.font        : xft:Dejavu Sans Mono for PowerLine:pixelsize=10
-URxvt.letterSpace : -2
+URxvt.font        : xft:DejaVu Sans Mono for Powerline:style=Bold:pixelsize=10
+URxvt.letterSpace : -1
 URxvt.termName    : rxvt-256color
 URxvt.iso14755    : false
+
+URxvt.intensityStyles: false
 
 URxvt.urgentOnBell: true
 
@@ -26,52 +28,68 @@ URxvt.saveLines   : 12000
 URxvt.scrollBar   : false
 URxvt.scrollstyle : rxvt
 
-!Solarized + tangerine + random colours
-URxvt.cursorColor : #61D068
 URxvt*cursorBlink : true
 
-URxvt.pointerColorBackground : #586E75
-URxvt.pointerColorForeground : #00FF00
-
 URxvt.Depth        : 32
-URxvt.background   : #404040
-URxvt.foreground   : #D8D9D9
 URxvt*.transparent : True
 URxvt*.shading     : 10
 
 URxvt.colorBD : #FFFFFF
 URxvt.colorUL : #CCCC66
 
-! black
-URxvt.color0  : #2E3436
-URxvt.color8  : #555753
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-! red
-!URxvt.color1  : #9e1828
-!URxvt.color9  : #cf6171
-URxvt.color1  : #e60000
-URxvt.color9  : #ff0000
+*background:            S_base03
+*foreground:            S_base0
+*fadeColor:             S_base03
+*cursorColor:           S_base1
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
 
-! green
-URxvt.color2  : #aece92
-URxvt.color10 : #c5f779
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
 
-! yellow
-URxvt.color3  : #968a38
-URxvt.color11 : #fff796
+!! black dark/light
+*color0:                S_base02
+*color8:                S_base03
 
-! blue
-URxvt.color4  : #5454FF
-URxvt.color12 : #7A5ADA
+!! red dark/light
+*color1:                S_red
+*color9:                S_orange
 
-! magenta
-URxvt.color5  : #963c59
-URxvt.color13 : #cf9ebe
+!! green dark/light
+*color2:                S_green
+*color10:               S_base01
 
-! cyan
-URxvt.color6  : #418179
-URxvt.color14 : #71bebe
+!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
 
-! white
-URxvt.color7  : #bebebe
-URxvt.color15 : #ffffff
+!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
+
+!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
+
+!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
+
+!! white dark/light
+*color7:                S_base2
+*color15:               S_base3
