@@ -105,3 +105,6 @@ alias pms="/home/eilkahn/opt/pms/mps"
 
 #Games
 alias mario="mupen64plus --windowed ~/roms/N64/SuperMario64.v64"
+
+#Scripts
+source $HOME/scripts/proj.zsh
