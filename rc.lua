@@ -96,8 +96,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " 1-WEB ", " 2-PAC ", " 3-NEWS ", " 4-IRC ", " 5-PROG ", " 6-PIR ", " 7-MED ", " 8-GAM ", " 9-MISC " },
-   layout = { layouts[10], layouts[2], layouts[8], layouts[10], layouts[10], layouts[5], layouts[10], layouts[10], layouts [1] }
+   names = { " 1-WEB ", " 2-PAC ", " 3-PROG ", " 4-MED ", " 5-IRC ", " 6-NEWS ", " 7-PIR ", " 8-GAM ", " 9-MISC " },
+   layout = { layouts[10], layouts[2], layouts[10], layouts[10], layouts[10], layouts[8], layouts[5], layouts[10], layouts [1] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
@@ -233,7 +233,7 @@ netupicon = wibox.widget.imagebox(beautiful.widget_netup)
 netupinfo = lain.widgets.net({
     settings = function()
         if iface ~= "network off" and
-           string.match(myweather._layout.text, "N/A")
+           string.match(myweather._layout.text, "N/A1")
         then
             myweather.update()
         end
