@@ -93,11 +93,11 @@ export BROWSER="google-chrome-stable"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 #Config files
-alias eV="vim ~/dotFiles/.vimrc"
-alias eZ="vim ~/dotFiles/.zshrc"
+alias eV="vim ~/DotFiles/vimrc"
+alias eZ="vim ~/DotFiles/zshrc"
 alias sZ="source ~/.zshrc"
-alias eA="vim ~/dotFiles/rc.lua"
-alias eX="vim ~/dotFiles/.Xresources"
+alias eA="vim ~/DotFiles/rc.lua"
+alias eX="vim ~/DotFiles/Xresources"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"

@@ -56,7 +56,7 @@ set bs=2
 let mapleader = ","
 
 "VIMRC
-map <leader>rc :vsplit ~/dotFiles/.vimrc<cr>
+map <leader>rc :vsplit ~/DotFiles/vimrc<cr>
 
 "Rebind ESC key
 inoremap ii <ESC>
