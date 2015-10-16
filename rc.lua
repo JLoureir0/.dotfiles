@@ -234,7 +234,7 @@ netupicon = wibox.widget.imagebox(beautiful.widget_netup)
 netupinfo = lain.widgets.net({
     settings = function()
         if iface ~= "network off" and
-           string.match(myweather._layout.text, "N/A1")
+           string.match(myweather._layout.text, "N/A")
         then
             myweather.update()
         end
