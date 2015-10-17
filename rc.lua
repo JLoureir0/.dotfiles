@@ -54,6 +54,7 @@ run_once("compton --backend glx --paint-on-overlay --vsync opengl-swc")
 run_once("xbindkeys")
 run_once("xscreensaver -no-splash")
 run_once("xss-lock -- xscreensaver-command -lock")
+run_once("mpd ~/.config/mpd/mpd.conf")
 run_once("skype")
 
 -- }}}
@@ -430,7 +431,7 @@ end
 globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end),
+    awful.key({ }, "Print", function() os.execute("screenshot") end),
 
     -- Lock screen
     awful.key({ "Control", altkey }, "l", function() os.execute("xscreensaver-command -lock") end),
