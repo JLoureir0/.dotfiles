@@ -57,6 +57,33 @@ plugins=(git)
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
+#LS_COLORS defined
+eval $(dircolors ~/.dir_colors)
+
+#Ambient Variables
+export EDITOR="vim"
+export BROWSER="google-chrome-stable"
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+
+#Config files
+alias eV="vim ~/DotFiles/vimrc"
+alias eZ="vim ~/DotFiles/zshrc"
+alias sZ="source ~/.zshrc"
+alias eA="vim ~/DotFiles/rc.lua"
+alias eX="vim ~/DotFiles/Xresources"
+
+#Apps
+alias hogs="sudo nethogs wlp3s0"
+alias pms="/home/eilkahn/opt/pms/mps"
+
+#Games
+alias mario="mupen64plus --windowed ~/roms/N64/SuperMario64.v64"
+
+#Scripts
+for file in $HOME/Scripts/*.zsh; do
+  source "$file";
+done
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -84,29 +111,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#LS_COLORS defined
-eval $(dircolors ~/.dir_colors)
-
-#Ambient Variables
-export EDITOR="vim"
-export BROWSER="google-chrome-stable"
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-
-#Config files
-alias eV="vim ~/DotFiles/vimrc"
-alias eZ="vim ~/DotFiles/zshrc"
-alias sZ="source ~/.zshrc"
-alias eA="vim ~/DotFiles/rc.lua"
-alias eX="vim ~/DotFiles/Xresources"
-
-#Apps
-alias hogs="sudo nethogs wlp3s0"
-alias pms="/home/eilkahn/opt/pms/mps"
-
-#Games
-alias mario="mupen64plus --windowed ~/roms/N64/SuperMario64.v64"
-
-#Scripts
-for file in $HOME/Scripts/*.zsh; do
-  source "$file";
-done
