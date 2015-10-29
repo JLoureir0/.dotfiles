@@ -72,12 +72,13 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "google-chrome-stable"
-im         = "skype"
-gui_editor = "idea.sh"
-graphics   = "gimp"
-steam      = "steam"
-mail       = terminal .. " -e mutt "
+browser      = "google-chrome-stable"
+im           = "skype"
+gui_editor   = "idea.sh"
+graphics     = "gimp"
+steam        = "steam"
+encrypted_im = "qtox"
+mail         = terminal .. " -e mutt "
 
 local layouts = {
     awful.layout.suit.floating,
@@ -579,6 +580,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "i", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "s", function () awful.util.spawn(im) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(steam) end),
+    awful.key({ modkey }, "e", function () awful.util.spawn(encrypted_im) end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
