@@ -64,6 +64,7 @@ eval $(dircolors ~/.dir_colors)
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export STEAM_FRAME_FORCE_CLOSE=1
 
 #Config files
 alias eV="vim ~/DotFiles/vimrc"
