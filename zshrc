@@ -54,7 +54,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.2.0/bin:$PATH;
 # export MANPATH="/usr/local/man:$MANPATH"
 
 #LS_COLORS defined
