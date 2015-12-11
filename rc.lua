@@ -208,8 +208,10 @@ batwidget = lain.widgets.bat({
     settings = function()
         if bat_now.perc == "N/A" then
             perc = "AC "
-        else
+        elseif bat_now.status == 'Discharging' then
             perc = bat_now.perc .. "% " .. bat_now.time .. "h "
+        else
+          perc = bat_now.perc .. "% "
         end
         widget:set_text(perc)
     end
