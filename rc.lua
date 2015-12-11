@@ -209,7 +209,7 @@ batwidget = lain.widgets.bat({
         if bat_now.perc == "N/A" then
             perc = "AC "
         else
-            perc = bat_now.perc .. "% "
+            perc = bat_now.perc .. "% " .. bat_now.time .. "h "
         end
         widget:set_text(perc)
     end
