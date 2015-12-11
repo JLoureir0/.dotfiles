@@ -30,6 +30,7 @@ Plugin 'danro/rename.vim'                 " Rename current file
 Plugin 'Chiel92/vim-autoformat'           " Provide easy code formatting in Vim
 Plugin 'marijnh/tern_for_vim'             " Tern plugin for Vim
 Plugin 'jelera/vim-javascript-syntax'     " Enhanced javascript syntax
+Plugin 'tpope/vim-rails'                  " Ruby on Rails power tools
 
 call vundle#end()
 
