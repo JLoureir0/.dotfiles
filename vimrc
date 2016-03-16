@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'                " Vundle plugin manager
 Plugin 'Valloric/YouCompleteMe'           " Code completion engine for vim
 Plugin 'scrooloose/syntastic'             " Syntax checking hacks for vim
 Plugin 'bling/vim-airline'                " Vim status bar
+Plugin 'vim-airline/vim-airline-themes'   " Airline Themes
 Plugin 'tpope/vim-fugitive'               " Vim plugin for git
 Plugin 'tpope/vim-surround'               " Plugin for tags
 Plugin 'tomasr/molokai'                   " Molokai theme
