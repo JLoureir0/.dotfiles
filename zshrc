@@ -52,6 +52,20 @@ ZSH_THEME="oh-my"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+#GPG
+gpg-connect-agent /bye >/dev/null 2>&1
+
+# Set SSH to use gpg-agent
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+
+# Set GPG TTY
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# Refresh gpg-agent tty in case user switches into an X session
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.2.0/bin:$PATH;
