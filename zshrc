@@ -89,6 +89,7 @@ alias eX="vim ~/DotFiles/Xresources"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"
+alias neo="nvim"
 alias pms="/home/eilkahn/opt/pms/mps"
 
 #Games
