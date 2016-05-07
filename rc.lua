@@ -1,8 +1,8 @@
 --[[
-
-     Multicolor Awesome WM config 2.0
-     github.com/copycat-killer
-
+                                      
+     Multicolor Awesome WM config 2.0 
+     github.com/copycat-killer        
+                                      
 --]]
 
 -- {{{ Required libraries
@@ -49,14 +49,14 @@ function run_once(cmd)
 end
 
 run_once("urxvtd")
-run_once("unclutter -root")
+run_once("unclutter")
 run_once("compton --backend glx --paint-on-overlay --vsync opengl-swc")
 run_once("xbindkeys")
 run_once("xscreensaver -no-splash")
 run_once("xss-lock -- xscreensaver-command -lock")
-run_once("mpd ~/.config/mpd/mpd.conf")
-run_once("skype")
-
+run_once("nm-applet")
+--run_once("mpd ~/.config/mpd/mpd.conf")
+--run_once("skype")
 -- }}}
 
 -- {{{ Variable definitions
@@ -76,9 +76,7 @@ browser      = "google-chrome-stable"
 im           = "skype"
 gui_editor   = "idea.sh"
 graphics     = "gimp"
-steam        = "steam"
-encrypted_im = "qtox"
-mail         = terminal .. " -e mutt "
+mail       = terminal .. " -e mutt "
 
 local layouts = {
     awful.layout.suit.floating,
@@ -140,16 +138,15 @@ mytextclock = lain.widgets.abase({
 })
 
 -- Calendar
-lain.widgets.calendar:attach(mytextclock, { font_size = 8 })
+lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Weather
 weathericon = wibox.widget.imagebox(beautiful.widget_weather)
 myweather = lain.widgets.weather({
-    APPID   = 'a9ee148f27783b0bbb6790368b65ee41',
     city_id = 2735943, -- placeholder
     settings = function()
         descr = weather_now["weather"][1]["description"]:lower()
-        units = math.floor(weather_now["main"]["temp"])
+        units = math.ceil(weather_now["main"]["temp"]-0.4)
         widget:set_markup(markup("#eca4c4", descr .. " @ " .. units .. "°C "))
     end
 })
@@ -194,7 +191,7 @@ cpuwidget = lain.widgets.cpu({
 
 -- Coretemp
 tempicon = wibox.widget.imagebox(beautiful.widget_temp)
-tempwidget = lain.widgets.base({
+tempwidget = lain.widgets.temp({
     settings = function()
         local file = io.open('/sys/bus/platform/devices/coretemp.0/hwmon/hwmon0/temp2_input', 'r')
         coretemp = file:read('*number')/1000
@@ -423,11 +420,11 @@ end
 -- }}}
 
 -- {{{ Mouse Bindings
---root.buttons(awful.util.table.join(
-    --awful.button({ }, 3, function () mymainmenu:toggle() end),
-    --awful.button({ }, 4, awful.tag.viewnext),
-    --awful.button({ }, 5, awful.tag.viewprev)
---))
+root.buttons(awful.util.table.join(
+    awful.button({ }, 3, function () mymainmenu:toggle() end),
+    awful.button({ }, 4, awful.tag.viewnext),
+    awful.button({ }, 5, awful.tag.viewprev)
+))
 -- }}}
 
 -- {{{ Key bindings
@@ -523,7 +520,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
-    awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
+    awful.key({ modkey,           }, "z",      function () drop(terminal) end),
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
