@@ -12,8 +12,6 @@ Plug 'ctrlpvim/ctrlp.vim'                           " Full path fuzzy file, buff
 Plug 'rking/ag.vim'                                 " Vim plugin for the_silver_searcher
 Plug 'scrooloose/nerdcommenter'                     " Vim plugin for intensely orgasmic commenting
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Snippets Plugins
-Plug 'mattn/webapi-vim'                             " vim interface to Web API
-Plug 'mattn/gist-vim'                               " vimscript for gist
 Plug 'majutsushi/tagbar'                            " a class outline viewer for Vim
 Plug 'godlygeek/tabular'                            " Vim script for text filtering and alignment
 Plug 'danro/rename.vim'                             " Rename current file
@@ -21,12 +19,15 @@ Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatti
 Plug 'ryanoasis/vim-devicons'                       " adds font icons
 Plug 'Raimondi/delimitMate'                         " provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'neomake/neomake'                              " A plugin for asynchronous :make using Neovim's job-control functionality
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neco-vim'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }    " A tree explorer plugin for vim.
-Plug 'elzr/vim-json', {'for': 'json'}                      " A better JSON for Vim
-Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] } " A Vim plugin that always highlights the enclosing html/xml tags
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }         " vim plug-in which provides support for expanding abbreviations similar to emmet
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }           " A tree explorer plugin for vim.
+Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', { 'on': 'Gist' } " vimscript for gist
+Plug 'elzr/vim-json', {'for': 'json'}                             " A better JSON for Vim
+Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }        " A Vim plugin that always highlights the enclosing html/xml tags
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }                " vim plug-in which provides support for expanding abbreviations similar to emmet
 
 call plug#end()
 
@@ -210,3 +211,9 @@ let g:neomake_java_javac_maker = {
 let g:neomake_java_enabled_makers = ['javac']
 
 autocmd! BufWritePost * Neomake
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr> <Tab>
+		\ pumvisible() ? "\<C-n>" :
+		\ deoplete#mappings#manual_complete()
