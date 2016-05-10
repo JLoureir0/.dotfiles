@@ -47,8 +47,8 @@ inoremap ii <ESC>
 " Rebind <Leader> key
 let mapleader = ","
 
-"VIMRC
-map <leader>rc :vsplit ~/DotFiles/vimrc<cr>
+"init.vim
+map <leader>rc :vsplit ~/DotFiles/init.vim<cr>
 
 " Bind nohl
 " Removes highlight of your last search
