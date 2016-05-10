@@ -16,10 +16,12 @@ Plug 'godlygeek/tabular'                            " Vim script for text filter
 Plug 'danro/rename.vim'                             " Rename current file
 Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatting in Vim
 Plug 'ryanoasis/vim-devicons'                       " adds font icons
+Plug 'Raimondi/delimitMate'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 
 call plug#end()
 
@@ -71,10 +73,12 @@ set foldmethod=syntax
 set foldlevelstart=100
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
+if has('nvim')
+  nmap <BS> <C-W>h
+endif
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
-map <c-h> <c-w>h
 
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
