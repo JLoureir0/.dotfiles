@@ -19,6 +19,7 @@ Plug 'ryanoasis/vim-devicons'                       " adds font icons
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'elzr/vim-json', {'for': 'json'}
 
 call plug#end()
 
@@ -192,3 +193,6 @@ noremap <leader>f :Autoformat <CR>
 
 " Devicons
 set encoding=utf8
+
+" Vim-JSON
+let g:vim_json_syntax_conceal = 0
