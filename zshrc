@@ -75,17 +75,18 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.2.0/bin:$PATH;
 eval $(dircolors ~/.dir_colors)
 
 #Ambient Variables
-export EDITOR="vim"
+export EDITOR="nvim"
 export BROWSER="google-chrome-stable"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export STEAM_FRAME_FORCE_CLOSE=1
 
 #Config files
-alias eV="vim ~/DotFiles/vimrc"
-alias eZ="vim ~/DotFiles/zshrc"
+alias eV="neo ~/DotFiles/vimrc"
+alias eN="neo ~/DotFiles/init.vim"
+alias eZ="neo ~/DotFiles/zshrc"
 alias sZ="source ~/.zshrc"
-alias eA="vim ~/DotFiles/rc.lua"
-alias eX="vim ~/DotFiles/Xresources"
+alias eA="neo ~/DotFiles/rc.lua"
+alias eX="neo ~/DotFiles/Xresources"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"
