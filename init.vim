@@ -19,13 +19,14 @@ Plug 'godlygeek/tabular'                            " Vim script for text filter
 Plug 'danro/rename.vim'                             " Rename current file
 Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatting in Vim
 Plug 'ryanoasis/vim-devicons'                       " adds font icons
-Plug 'Raimondi/delimitMate'
-Plug 'neomake/neomake'
+Plug 'Raimondi/delimitMate'                         " provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plug 'neomake/neomake'                              " A plugin for asynchronous :make using Neovim's job-control functionality
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'elzr/vim-json', {'for': 'json'}
-Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }    " A tree explorer plugin for vim.
+Plug 'elzr/vim-json', {'for': 'json'}                      " A better JSON for Vim
+Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] } " A Vim plugin that always highlights the enclosing html/xml tags
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }         " vim plug-in which provides support for expanding abbreviations similar to emmet
 
 call plug#end()
 
