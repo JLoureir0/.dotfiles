@@ -5,7 +5,7 @@ Plug 'vim-airline/vim-airline-themes'               " Airline Themes
 Plug 'tpope/vim-fugitive'                           " Vim plugin for git
 Plug 'tpope/vim-surround'                           " Plugin for tags
 Plug 'altercation/vim-colors-solarized'             " Solarized theme
-Plug 'kien/ctrlp.vim'                               " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plug 'ctrlpvim/ctrlp.vim'                           " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plug 'rking/ag.vim'                                 " Vim plugin for the_silver_searcher
 Plug 'scrooloose/nerdcommenter'                     " Vim plugin for intensely orgasmic commenting
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Snippets Plugins
@@ -15,6 +15,7 @@ Plug 'majutsushi/tagbar'                            " a class outline viewer for
 Plug 'godlygeek/tabular'                            " Vim script for text filtering and alignment
 Plug 'danro/rename.vim'                             " Rename current file
 Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatting in Vim
+Plug 'ryanoasis/vim-devicons'                       " adds font icons
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -35,10 +36,6 @@ set background=dark
 " Color scheme
 colorscheme solarized
 hi MatchParen cterm=bold ctermbg=none ctermfg=208 "Little tweak with the matching parents colors
-
-" Show whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\(\s\+$\)\|\(^\n$\)/
 
 " Better split opening
 set splitright
@@ -192,3 +189,6 @@ let NERDTreeMapActivateNode='<CR>' " Use return/enter key
 
 " Autoformat
 noremap <leader>f :Autoformat <CR>
+
+" Devicons
+set encoding=utf8
