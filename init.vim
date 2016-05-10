@@ -1,3 +1,6 @@
+" Automatic reloading of .vimrc
+autocmd! bufwritepost init.vim source %
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'bling/vim-airline'                            " Vim status bar
@@ -17,6 +20,7 @@ Plug 'danro/rename.vim'                             " Rename current file
 Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatting in Vim
 Plug 'ryanoasis/vim-devicons'                       " adds font icons
 Plug 'Raimondi/delimitMate'
+Plug 'neomake/neomake'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -156,7 +160,7 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|lib)$'
-set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d,*.pyc
+set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d,*.pyc,*.class
 
 " Gist plugin settings
 let g:gist_detect_filetype = 1 " Detect filetype
@@ -195,8 +199,13 @@ let NERDTreeMapActivateNode='<CR>' " Use return/enter key
 " Autoformat
 noremap <leader>f :Autoformat <CR>
 
-" Devicons
-set encoding=utf8
-
 " Vim-JSON
 let g:vim_json_syntax_conceal = 0
+
+" NeoMake
+let g:neomake_java_javac_maker = {
+    \ 'args': ['-classpath', 'src/main/java', '-d', 'build/classes/main']
+    \ }
+let g:neomake_java_enabled_makers = ['javac']
+
+autocmd! BufWritePost * Neomake
