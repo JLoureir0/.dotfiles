@@ -1,8 +1,11 @@
 " Automatic reloading of init.vim
 autocmd! bufwritepost init.vim source %
 
+" Vim-plug ----------------------------------------------------------{{{
+
 call plug#begin('~/.config/nvim/plugged')
 
+" Core Plugins {{{
 Plug 'bling/vim-airline'                            " Vim status bar
 Plug 'vim-airline/vim-airline-themes'               " Airline Themes
 Plug 'tpope/vim-fugitive'                           " Vim plugin for git
@@ -26,7 +29,9 @@ Plug 'easymotion/vim-easymotion'                    " Vim motions on speed!
 Plug 'wellle/targets.vim'                           " Vim plugin that provides additional text objects
 Plug 'bronson/vim-trailing-whitespace'              " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 
-" On-demand loading
+" }}}
+
+" On-demand loading {{{
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }           " A tree explorer plugin for vim.
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', { 'on': 'Gist' } " vimscript for gist
 Plug 'elzr/vim-json', { 'for': 'json' }                           " A better JSON for Vim
@@ -34,7 +39,13 @@ Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }        " A Vim plugin
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }                " vim plug-in which provides support for expanding abbreviations similar to emmet
 Plug 'Shougo/neco-vim', { 'for': 'vim' }                          " The vim source for neocomplete/deoplete
 
+" }}}
+
 call plug#end()
+
+" }}}
+
+" Core Settings ----------------------------------------------------------{{{
 
 " Load ftplugins and indent files
 filetype plugin on
@@ -82,9 +93,8 @@ noremap <Leader>E :qa!<CR> " Quit all windows
 " Folding
 set foldmethod=syntax
 set foldlevelstart=100
-
-au FileType vim
-        \ set foldmethod=marker
+autocmd FileType vim setlocal foldmethod=marker
+autocmd FileType vim setlocal foldlevel=0
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 if has('nvim')
@@ -153,50 +163,62 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" }}}
+
+" PLUGINS OPTIONS ----------------------------------------------------------{{{
+
                               """""""""""""""""""""""""""""""""""""""""""""""""""
                               "                                                 "
                               "                     Plugins                     "
                               "                                                 "
                               """""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Vim-airline
+" Vim-airline {{{
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
+" }}}
 
-" Ctrlp plugin settings
+
+" Ctrlp plugin settings {{{
 let g:ctrlp_cmd = 'CtrlP .'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|lib)$'
 set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d,*.pyc,*.class
+" }}}
 
-" Gist plugin settings
+" Gist plugin settings {{{
 let g:gist_detect_filetype = 1 " Detect filetype
 let g:gist_open_browser_after_post = 1 " Open browser after the post
 map <leader>gi :Gist<cr>
+" }}}
 
-" Silver Searcher
+" Silver Searcher {{{
 map <leader>a :Ag!<space>
 map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"<cr>
+" }}}
 
-" UltiSnips keybindings
+" UltiSnips keybindings {{{
 let g:UltiSnipsExpandTrigger='<c-e>'
 let g:UltiSnipsJumpForwardTrigger='<TAB>'
 let g:UltiSnipsJumpBackwardTrigger='<s-TAB>'
+" }}}
 
-" Tagbar
+" Tagbar {{{
 noremap  <F8> :TagbarToggle<CR>
 vnoremap <F8> <C-C>:TagbarToggle<CR>
 inoremap <F8> <C-O>:TagbarToggle<CR>
+" }}}
 
-" Tabularize
+" Tabularize {{{
 nnoremap <leader>ta :Tabularize /
 vnoremap <leader>ta <ESC>:Tabularize /
+" }}}
 
-" NERDTree
+" NERDTree {{{
 map <C-t> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize = 40
 let NERDTreeMinimalUI = 1
@@ -206,39 +228,47 @@ let NERDTreeChDirMode = 2
 let NERDTreeMapJumpFirstChild = 'gK'
 let NERDTreeHighlightCursorline = 1 " Use cursorline
 let NERDTreeMapActivateNode='<CR>' " Use return/enter key
+" }}}
 
-" Autoformat
+" Autoformat {{{
 noremap <leader>f :Autoformat <CR>
+" }}}
 
-" Vim-JSON
+" Vim-JSON {{{
 let g:vim_json_syntax_conceal = 0
+" }}}
 
-" NeoMake
+" NeoMake {{{
 let g:neomake_java_javac_maker = {
     \ 'args': ['-classpath', 'src/main/java', '-d', 'build/classes/main']
     \ }
 let g:neomake_java_enabled_makers = ['javac']
 
 autocmd! BufWritePost * Neomake
+" }}}
 
-" Deoplete
+" Deoplete {{{
 let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr> <Tab>
 		\ pumvisible() ? "\<C-n>" :
 		\ deoplete#mappings#manual_complete()
+" }}}
 
-" EasyMotion
+" EasyMotion {{{
 let g:EasyMotion_startofline = 0 " keep cursor on current column after J and K motion
 let g:EasyMotion_smartcase = 1 " work similarly to Vim's smartcase option for G and g motion
 let g:EasyMotion_do_mapping = 0 " no default maps
 map <leader>gf <Plug>(easymotion-sn)
+" }}}
 
-" vim-easyoperator-line -------------- {{{
+" vim-easyoperator-line {{{
 let g:EasyOperator_line_do_mapping = 0
 map <leader>v <Plug>(easyoperator-line-select)
 " }}}
 
-" vim-easyoperator-phrase ------------ {{{
+" vim-easyoperator-phrase {{{
 let g:EasyOperator_phrase_do_mapping = 0
 map <leader>V <Plug>(easyoperator-phrase-select)
+" }}}
+
 " }}}
