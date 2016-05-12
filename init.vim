@@ -24,6 +24,7 @@ Plug 'easymotion/vim-easymotion'                    " Vim motions on speed!
       \| Plug 'haya14busa/vim-easyoperator-line'    " Select, yank, paste, delete, or other operation of lines.
       \| Plug 'haya14busa/vim-easyoperator-phrase'  " Select, yank, paste, delete, or other operation of phrase.
 Plug 'wellle/targets.vim'                           " Vim plugin that provides additional text objects
+Plug 'bronson/vim-trailing-whitespace'              " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }           " A tree explorer plugin for vim.
