@@ -83,6 +83,9 @@ noremap <Leader>E :qa!<CR> " Quit all windows
 set foldmethod=syntax
 set foldlevelstart=100
 
+au FileType vim
+        \ set foldmethod=marker
+
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 if has('nvim')
   nmap <BS> <C-W>h
