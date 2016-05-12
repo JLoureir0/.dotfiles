@@ -23,7 +23,7 @@ Plug 'Shougo/deoplete.nvim'                         " Dark powered asynchronous 
 Plug 'easymotion/vim-easymotion'                    " Vim motions on speed!
       \| Plug 'haya14busa/vim-easyoperator-line'    " Select, yank, paste, delete, or other operation of lines.
       \| Plug 'haya14busa/vim-easyoperator-phrase'  " Select, yank, paste, delete, or other operation of phrase.
-Plug 'wellle/targets.vim'
+Plug 'wellle/targets.vim'                           " Vim plugin that provides additional text objects
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }           " A tree explorer plugin for vim.
