@@ -1,4 +1,4 @@
-" Automatic reloading of .vimrc
+" Automatic reloading of init.vim
 autocmd! bufwritepost init.vim source %
 
 call plug#begin('~/.config/nvim/plugged')
@@ -19,15 +19,19 @@ Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatti
 Plug 'ryanoasis/vim-devicons'                       " adds font icons
 Plug 'Raimondi/delimitMate'                         " provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'neomake/neomake'                              " A plugin for asynchronous :make using Neovim's job-control functionality
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neco-vim'
+Plug 'Shougo/deoplete.nvim'                         " Dark powered asynchronous completion framework for neovim
+Plug 'easymotion/vim-easymotion'                    " Vim motions on speed!
+      \| Plug 'haya14busa/vim-easyoperator-line'    " Select, yank, paste, delete, or other operation of lines.
+      \| Plug 'haya14busa/vim-easyoperator-phrase'  " Select, yank, paste, delete, or other operation of phrase.
+Plug 'wellle/targets.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }           " A tree explorer plugin for vim.
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', { 'on': 'Gist' } " vimscript for gist
-Plug 'elzr/vim-json', {'for': 'json'}                             " A better JSON for Vim
+Plug 'elzr/vim-json', { 'for': 'json' }                           " A better JSON for Vim
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }        " A Vim plugin that always highlights the enclosing html/xml tags
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }                " vim plug-in which provides support for expanding abbreviations similar to emmet
+Plug 'Shougo/neco-vim', { 'for': 'vim' }                          " The vim source for neocomplete/deoplete
 
 call plug#end()
 
@@ -218,3 +222,19 @@ let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr> <Tab>
 		\ pumvisible() ? "\<C-n>" :
 		\ deoplete#mappings#manual_complete()
+
+" EasyMotion
+let g:EasyMotion_startofline = 0 " keep cursor on current column after J and K motion
+let g:EasyMotion_smartcase = 1 " work similarly to Vim's smartcase option for G and g motion
+let g:EasyMotion_do_mapping = 0 " no default maps
+map <leader>gf <Plug>(easymotion-sn)
+
+" vim-easyoperator-line -------------- {{{
+let g:EasyOperator_line_do_mapping = 0
+map <leader>v <Plug>(easyoperator-line-select)
+" }}}
+
+" vim-easyoperator-phrase ------------ {{{
+let g:EasyOperator_phrase_do_mapping = 0
+map <leader>V <Plug>(easyoperator-phrase-select)
+" }}}
