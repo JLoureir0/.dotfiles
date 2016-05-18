@@ -768,6 +768,10 @@ client.connect_signal("focus",
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+-- Switch to the tag with urgent automatically
+client.connect_signal("property::urgent", function() awful.client.urgent.jumpto() end)
+-- }}}
+
 -- {{{ Arrange signal handler
 for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
         local clients = awful.client.visible(s)
