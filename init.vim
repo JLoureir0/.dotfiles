@@ -51,6 +51,9 @@ call plug#end()
 filetype plugin on
 filetype indent on
 
+" Better copy & paste
+set clipboard=unnamedplus
+
 " Enable syntax highlighting
 filetype off
 syntax on
