@@ -130,6 +130,7 @@ map <leader>gm  :!clear && git merge<space>
 
 " Showing line numbers and length
 set number " show line numbers
+set relativenumber "Relative of cursor position
 set tw=120 " width of document
 set nowrap " don't automatically wrap on load
 set fo-=t  " don't automatically wrap text when typing
