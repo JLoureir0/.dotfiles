@@ -23,9 +23,9 @@ Plug 'ryanoasis/vim-devicons'                       " adds font icons
 Plug 'Raimondi/delimitMate'                         " provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'neomake/neomake'                              " A plugin for asynchronous :make using Neovim's job-control functionality
 Plug 'Shougo/deoplete.nvim'                         " Dark powered asynchronous completion framework for neovim
-Plug 'easymotion/vim-easymotion'                    " Vim motions on speed!
-      \| Plug 'haya14busa/vim-easyoperator-line'    " Select, yank, paste, delete, or other operation of lines.
-      \| Plug 'haya14busa/vim-easyoperator-phrase'  " Select, yank, paste, delete, or other operation of phrase.
+Plug 'easymotion/vim-easymotion'
+      \ | Plug 'haya14busa/vim-easyoperator-line'
+      \ | Plug 'haya14busa/vim-easyoperator-phrase' " Vim motions on speed!
 Plug 'wellle/targets.vim'                           " Vim plugin that provides additional text objects
 Plug 'bronson/vim-trailing-whitespace'              " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 
@@ -105,8 +105,8 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 
 " easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+map <Leader>n <esc>:bp<CR>
+map <Leader>m <esc>:bn<CR>
 
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
@@ -263,12 +263,12 @@ map <leader>gf <Plug>(easymotion-sn)
 
 " vim-easyoperator-line {{{
 let g:EasyOperator_line_do_mapping = 0
-map <leader>v <Plug>(easyoperator-line-select)
+nmap <leader>v <Plug>(easyoperator-line-select)
 " }}}
 
 " vim-easyoperator-phrase {{{
 let g:EasyOperator_phrase_do_mapping = 0
-map <leader>V <Plug>(easyoperator-phrase-select)
+nmap <leader>V <Plug>(easyoperator-phrase-select)
 " }}}
 
 " }}}
