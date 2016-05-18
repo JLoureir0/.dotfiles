@@ -642,6 +642,8 @@ for i = 1, 9 do
                           local tag = awful.tag.gettags(client.focus.screen)[i]
                           if tag then
                               awful.client.movetotag(tag)
+                              awful.tag.viewonly(tag)
+                              if client.focus then client.focus:raise() end
                           end
                      end
                   end),
