@@ -429,10 +429,6 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    -- Take a screenshot
-    -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
-    awful.key({ }, "Print", function() os.execute("screenshot") end),
-
     -- Lock screen
     awful.key({ "Control", altkey }, "l", function() os.execute("xscreensaver-command -lock") end),
 

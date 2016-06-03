@@ -3,3 +3,6 @@
 
 "xbacklight -dec 10"
     XF86MonBrightnessDown
+
+"spectacle"
+  Print
