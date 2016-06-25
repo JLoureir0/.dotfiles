@@ -13,7 +13,7 @@ awful.rules     = require("awful.rules")
 local wibox     = require("wibox")
 local beautiful = require("beautiful")
 local naughty   = require("naughty")
-local drop      = require("scratchdrop")
+local quake     = require("quake")
 local lain      = require("lain")
 -- }}}
 
@@ -55,8 +55,6 @@ run_once("xbindkeys")
 run_once("xscreensaver -no-splash")
 run_once("xss-lock -- xscreensaver-command -lock")
 run_once("nm-applet")
---run_once("mpd ~/.config/mpd/mpd.conf")
---run_once("skype")
 -- }}}
 
 -- {{{ Variable definitions
@@ -92,6 +90,12 @@ local layouts = {
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier
 }
+
+-- quake terminal
+local quakeconsole = {}
+for s = 1, screen.count() do
+   quakeconsole[s] = quake({ app = terminal })
+end
 -- }}}
 
 -- {{{ Tags
@@ -146,7 +150,7 @@ myweather = lain.widgets.weather({
     city_id = 2735943, -- placeholder
     settings = function()
         descr = weather_now["weather"][1]["description"]:lower()
-        units = math.ceil(weather_now["main"]["temp"]-0.4)
+        units = math.floor(weather_now["main"]["temp"])
         widget:set_markup(markup("#eca4c4", descr .. " @ " .. units .. "°C "))
     end
 })
@@ -516,7 +520,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
-    awful.key({ modkey,           }, "z",      function () drop(terminal) end),
+    awful.key({ modkey,	          }, "z",      function () quakeconsole[mouse.screen]:toggle() end),
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
@@ -674,16 +678,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
-    { rule = { class = "URxvt" },
-          properties = { opacity = 0.99 } },
-
-    { rule = { class = "MPlayer" },
-          properties = { floating = true } },
-
-    { rule = { class = "Dwb" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { class = "Iron" },
+    { rule = { class = "Firefox" },
           properties = { tag = tags[1][1] } },
 
     { rule = { instance = "plugin-container" },
@@ -754,12 +749,13 @@ client.connect_signal("manage", function (c, startup)
     end
 end)
 
--- No border for maximized clients
+-- No border for maximized or single clients
 client.connect_signal("focus",
     function(c)
         if c.maximized_horizontal == true and c.maximized_vertical == true then
-            c.border_color = beautiful.border_normal
-        else
+            c.border_width = 0
+        elseif #awful.client.visible(mouse.screen) > 1 then
+            c.border_width = beautiful.border_width
             c.border_color = beautiful.border_focus
         end
     end)
@@ -771,27 +767,18 @@ client.connect_signal("property::urgent", function() awful.client.urgent.jumpto(
 -- }}}
 
 -- {{{ Arrange signal handler
-for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
+for s = 1, screen.count() do screen[s]:connect_signal("arrange",
+    function ()
         local clients = awful.client.visible(s)
         local layout  = awful.layout.getname(awful.layout.get(s))
 
-        if #clients > 0 then -- Fine grained borders and floaters control
+        if #clients > 0 then
             for _, c in pairs(clients) do -- Floaters always have borders
-                -- No borders with only one humanly visible client
-                if layout == "max" then
-                    c.border_width = 0
-                elseif awful.client.floating.get(c) or layout == "floating" then
-                    c.border_width = beautiful.border_width
-                elseif #clients == 1 then
-                    clients[1].border_width = 0
-                    if layout ~= "max" then
-                        awful.client.moveresize(0, 0, 2, 0, clients[1])
-                    end
-                else
+                if awful.client.floating.get(c) or layout == "floating" then
                     c.border_width = beautiful.border_width
                 end
             end
         end
-      end)
+    end)
 end
 -- }}}
