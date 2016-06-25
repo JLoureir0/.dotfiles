@@ -14,7 +14,6 @@ URxvt.url-select.launcher  : google-chrome-stable
 !URxvt.url-select.underline : true
 
 URxvt.geometry  : 119x45
-
 URxvt.font        : xft:DejaVuSansMonoForPowerline Nerd Font:style=Bold:pixelsize=12
 
 URxvt.letterSpace : 0
@@ -32,8 +31,6 @@ URxvt.scrollstyle : rxvt
 URxvt*cursorBlink : true
 
 URxvt.Depth        : 32
-URxvt*.transparent : True
-URxvt*.shading     : 10
 
 URxvt.colorBD : #FFFFFF
 URxvt.colorUL : #CCCC66
@@ -48,9 +45,9 @@ URxvt.colorUL : #CCCC66
 #define S_base3         #fdf6e3
 
 URxvt.background:            S_base03
-URxvt.foreground:            S_base0
+URxvt.foreground:            S_base2
 URxvt.fadeColor:             S_base03
-URxvt.cursorColor:           S_base1
+URxvt.cursorColor:           S_base2
 URxvt.pointerColorBackground:S_base01
 URxvt.pointerColorForeground:S_base1
 
