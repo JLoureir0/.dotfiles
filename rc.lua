@@ -101,7 +101,7 @@ end
 -- {{{ Tags
 tags = {
    names = { " 1-WEB ", " 2-PAC ", " 3-PROG ", " 4-MED ", " 5-IRC ", " 6-NEWS ", " 7-PIR ", " 8-GAM ", " 9-MISC " },
-   layout = { layouts[10], layouts[2], layouts[10], layouts[10], layouts[10], layouts[8], layouts[5], layouts[10], layouts [1] }
+   layout = { layouts[10], layouts[2], layouts[11], layouts[10], layouts[10], layouts[8], layouts[5], layouts[10], layouts [1] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
