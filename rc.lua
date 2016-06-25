@@ -206,6 +206,7 @@ tempwidget = lain.widgets.temp({
 -- Battery
 baticon = wibox.widget.imagebox(beautiful.widget_batt)
 batwidget = lain.widgets.bat({
+    ac = "AC",
     settings = function()
         if bat_now.perc == "N/A" then
             perc = "AC "
