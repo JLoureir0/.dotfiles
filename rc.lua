@@ -69,11 +69,12 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser      = "google-chrome-stable"
-im           = "skype"
-gui_editor   = "idea.sh"
-graphics     = "gimp"
+browser    = "google-chrome-stable"
+im         = "skype"
+gui_editor = "idea.sh"
+graphics   = "gimp"
 mail       = terminal .. " -e mutt "
+twitch     = "livestreamer-twitch-gui"
 
 local layouts = {
     awful.layout.suit.floating,
@@ -580,6 +581,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "s", function () awful.util.spawn(im) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(steam) end),
     awful.key({ modkey }, "e", function () awful.util.spawn(encrypted_im) end),
+    awful.key({ modkey }, "t", function () awful.util.spawn(twitch) end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -598,7 +600,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -678,7 +680,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
-    { rule = { class = "Firefox" },
+    { rule = { class = "google-chrome" },
           properties = { tag = tags[1][1] } },
 
     { rule = { instance = "plugin-container" },
@@ -686,6 +688,17 @@ awful.rules.rules = {
 
 	  { rule = { class = "Gimp" },
      	    properties = { tag = tags[1][4] } },
+
+	  { rule = { class = "mpv" },
+     	    properties = { tag = tags[1][4] } },
+
+	  { rule = { class = "Tixati" },
+     	    properties = { tag = tags[1][7] } },
+
+	  { rule = { name = "Livestreamer Twitch GUI" },
+     	    properties = { tag = tags[1][9],
+                        maximized_horizontal = true,
+                        maximized_vertical = true} },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized_horizontal = true,
