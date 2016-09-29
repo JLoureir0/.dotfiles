@@ -75,6 +75,7 @@ gui_editor = "idea.sh"
 graphics   = "gimp"
 mail       = terminal .. " -e mutt "
 twitch     = "livestreamer-twitch-gui"
+steam      = "primusrun steam"
 
 local layouts = {
     awful.layout.suit.floating,
