@@ -68,7 +68,8 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH;
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.4.0/bin:$PATH;
 # export MANPATH="/usr/local/man:$MANPATH"
 
 #LS_COLORS defined
@@ -128,3 +129,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
