@@ -383,7 +383,7 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({}, "XF86AudioMute",
         function ()
-            os.execute(string.format("amixer set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+            os.execute(string.format("amixer -D pulse set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
             beautiful.volume.update()
         end),
     awful.key({ altkey, "Control" }, "m",
