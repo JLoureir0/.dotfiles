@@ -69,6 +69,8 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 # User configuration
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH=$HOME/.config/composer/vendor/bin:$PATH;
+
 #export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.4.0/bin:$PATH;
 # export MANPATH="/usr/local/man:$MANPATH"
 
