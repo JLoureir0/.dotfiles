@@ -1,81 +1,92 @@
-# Path to your oh-my-zsh installation.
+# Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster2"
+# Theme for zsh
+ZSH_THEME="agnoster"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# oh-my-zsh framework plugins
 plugins=(git)
 
-#GPG
-gpg-connect-agent /bye >/dev/null 2>&1
+source $ZSH/oh-my-zsh.sh
 
-# Set SSH to use gpg-agent
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+##### ZPLUG #####
 
-# Set GPG TTY
-GPG_TTY=$(tty)
-export GPG_TTY
+local zplug_dir="$HOME/.zplug/repos/zplug/zplug"
 
-# Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
+if [[ ! -d ~/.zplug ]] then
+    git clone https://github.com/zplug/zplug $zplug_dir
+fi
+
+source $zplug_dir/init.zsh
+
+# A next-generation plugin manager for zsh
+zplug "zplug/zplug"
+
+# Fish shell like syntax highlighting for Zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# ZSH port of Fish shell's history search feature
+zplug "zsh-users/zsh-history-substring-search", defer:3
+
+# Fish-like autosuggestions for zsh
+zplug "zsh-users/zsh-autosuggestions"
+
+# Additional completion definitions for Zsh
+zplug "zsh-users/zsh-completions"
+
+# An oh-my-zsh plugin to help remembering those aliases you defined once
+zplug "djui/alias-tips"
+
+# Easy setup of cdr for zsh
+zplug "willghatch/zsh-cdr", defer:0
+
+# zsh anything.el-like widget
+zplug "zsh-users/zaw", defer:1
+
+# Little script to create, navigate and delete bookmarks in Bash and Zsh, using the fuzzy finder fzf
+zplug "urbainvaes/fzf-marks"
+
+# This is a repository of themes for GNU ls (configured via GNU dircolors) that support Ethan Schoonover’s Solarized color scheme
+zplug "seebi/dircolors-solarized"
+
+# A modified version of oh-my-zsh's plugin colored-man-pages, optimized for solarized dark theme in terminal
+zplug "zlsun/solarized-man"
+
+# Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v
+export CACHE_DIR="${HOME}/.cache"
+[[ ! -d "${CACHE_DIR}" ]] && mkdir -p "${CACHE_DIR}"
+fasd_cache="${CACHE_DIR}/fasd-init-cache"
+zplug clvv/fasd, \
+      as:command, \
+      hook-build:"./fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $fasd_cache", defer:1
+
+#Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+      echo; zplug install
+  fi
+fi
+
+zplug load
+
+##### ----- #####
+
+# fasd
+source "$fasd_cache"
+unset fasd_cache
+
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=yellow'
+
+# bind ctrl+space to accept current suggestion
+bindkey '^ ' autosuggest-accept
 
 # User configuration
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-export PATH=$HOME/.config/composer/vendor/bin:$PATH;
-
-#export PATH=$HOME/bin:/usr/local/bin:$HOME/.gem/ruby/2.4.0/bin:$PATH;
-# export MANPATH="/usr/local/man:$MANPATH"
-
-#LS_COLORS defined
-eval $(dircolors ~/.dir_colors)
+## dircolors-solarized
+eval $(dircolors "$ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-dark")
+##
 
 #Ambient Variables
 export EDITOR="nvim"
@@ -83,54 +94,13 @@ export BROWSER="google-chrome-stable"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export STEAM_FRAME_FORCE_CLOSE=1
 
-#Config files
-alias eV="neo ~/DotFiles/vimrc"
-alias eN="neo ~/DotFiles/init.vim"
-alias eZ="neo ~/DotFiles/zshrc"
-alias sZ="source ~/.zshrc"
-alias eA="neo ~/DotFiles/rc.lua"
-alias eX="neo ~/DotFiles/Xresources"
-
-#Apps
-alias hogs="sudo nethogs wlp3s0"
-alias neo="nvim"
-alias pms="/home/eilkahn/opt/pms/mps"
-
-#Games
-alias mario="mupen64plus --windowed ~/roms/N64/SuperMario64.v64"
-
-#Scripts
-for file in $HOME/Scripts/*.zsh; do
+#Load extra config files
+for file in $HOME/.zsh/*.zsh; do
   source "$file";
 done
 
-source $ZSH/oh-my-zsh.sh
+# Add composer bin to path for laravel
+[[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]] && export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
