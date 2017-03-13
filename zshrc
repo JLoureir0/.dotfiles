@@ -34,6 +34,9 @@ zplug "zsh-users/zsh-autosuggestions"
 # Additional completion definitions for Zsh
 zplug "zsh-users/zsh-completions"
 
+# Gradle completions
+zplug "gradle/gradle-completion"
+
 # An oh-my-zsh plugin to help remembering those aliases you defined once
 zplug "djui/alias-tips"
 
