@@ -245,9 +245,6 @@ let g:vim_json_syntax_conceal = 0
 " }}}
 
 " NeoMake {{{
-let g:neomake_java_javac_maker = {
-    \ 'args': ['-classpath', 'src/main/java', '-d', 'build/classes/main']
-    \ }
 let g:neomake_java_enabled_makers = ['javac']
 
 autocmd! BufWritePost * Neomake
