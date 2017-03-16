@@ -16,7 +16,7 @@ Plug 'rking/ag.vim'                                 " Vim plugin for the_silver_
 Plug 'scrooloose/nerdcommenter'                     " Vim plugin for intensely orgasmic commenting
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Snippets Plugins
 Plug 'majutsushi/tagbar'                            " a class outline viewer for Vim
-Plug 'godlygeek/tabular'                            " Vim script for text filtering and alignment
+Plug 'junegunn/vim-easy-align'                      " Vim script for text filtering and alignment
 Plug 'danro/rename.vim'                             " Rename current file
 Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatting in Vim
 Plug 'ryanoasis/vim-devicons'                       " adds font icons
@@ -219,9 +219,12 @@ vnoremap <F8> <C-C>:TagbarToggle<CR>
 inoremap <F8> <C-O>:TagbarToggle<CR>
 " }}}
 
-" Tabularize {{{
-nnoremap <leader>ta :Tabularize /
-vnoremap <leader>ta <ESC>:Tabularize /
+" EasyAlign {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " }}}
 
 " NERDTree {{{
