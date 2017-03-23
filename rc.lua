@@ -67,14 +67,17 @@ run_once({
 -- }}}
 
 -- {{{ Variable definitions
-local chosen_theme    = "multicolor"
-local modkey          = "Mod4"
-local altkey          = "Mod1"
-local terminal        = "tilda" or "gnome-terminal" or "urxvtc" or "xterm"
-local editor          = os.getenv("EDITOR") or "nano" or "vi"
-local gui_editor      = "idea.sh"
-local browser         = "google-chrome-stable"
-local graphics_editor = "gimp"
+local chosen_theme               = "multicolor"
+local modkey                     = "Mod4"
+local altkey                     = "Mod1"
+local dejavu_sans_mono_bold_11   = ' -f "DejaVu Sans Mono for Powerline Bold 11"'
+local dejavu_sans_mono_bold_9    = ' -f "DejaVu Sans Mono for Powerline Bold 9"'
+local terminal                   = "tilda" .. dejavu_sans_mono_bold_9 or "gnome-terminal" or "urxvtc" or "xterm"
+local terminal_with_greater_font = "tilda" .. dejavu_sans_mono_bold_11
+local editor                     = os.getenv("EDITOR") or "nano" or "vi"
+local gui_editor                 = "idea.sh"
+local browser                    = "google-chrome-stable"
+local graphics_editor            = "gimp"
 
 local layouts = {
     awful.layout.suit.floating,
@@ -328,6 +331,8 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+              {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal_with_greater_font) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
