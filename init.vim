@@ -54,12 +54,18 @@ filetype indent on
 " Better copy & paste
 set clipboard=unnamedplus
 
+" Enable mouse in all modes
+set mouse=a
+
 " Enable syntax highlighting
 filetype off
 syntax on
 
 " Background
 set background=dark
+
+" Cursor behaviour
+set guicursor=a:block-blinkon30
 
 " Color scheme
 colorscheme solarized
@@ -101,9 +107,7 @@ autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType vim setlocal foldlevel=0
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
-if has('nvim')
-  nmap <BS> <C-W>h
-endif
+map <c-h> <c-w>h
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l

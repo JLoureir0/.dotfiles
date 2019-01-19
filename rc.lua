@@ -62,7 +62,8 @@ run_once({
   "xbindkeys",
   "xscreensaver -no-splash",
   "xss-lock -- xscreensaver-command -lock",
-  "nm-applet"
+  "nm-applet",
+  "knotes"
 })
 -- }}}
 
@@ -76,8 +77,9 @@ local terminal                   = "tilda" .. dejavu_sans_mono_bold_9 or "gnome-
 local terminal_with_greater_font = "tilda" .. dejavu_sans_mono_bold_11
 local editor                     = os.getenv("EDITOR") or "nano" or "vi"
 local gui_editor                 = "idea.sh"
-local browser                    = "google-chrome-stable"
+local browser                    = "firefox" or "google-chrome-stable"
 local graphics_editor            = "gimp"
+local appfinder                  = "xfce4-appfinder"
 
 local layouts = {
     awful.layout.suit.floating,
@@ -112,8 +114,8 @@ local layouts = {
 }
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " 1-WEB ", " 2-PAC ", " 3-PROG ", " 4-MED ", " 5-IRC ", " 6-NEWS ", " 7-PIR ", " 8-GAM ", " 9-MISC " }
-awful.layout.layouts = { layouts[10], layouts[2], layouts[11], layouts[10], layouts[10], layouts[8], layouts[5], layouts[10], layouts [1] }
+awful.util.tagnames = { " 1-WEB ", " 2-PAC ", " 3-PROG ", " 4-MED ", " 5-IRC ", " 6-NEWS ", " 7-PIR ", " 8-GAM ", " 9-NOTES " }
+awful.layout.layouts = { layouts[10], layouts[2], layouts[11], layouts[10], layouts[10], layouts[8], layouts[5], layouts[10], layouts [6] }
 
 awful.util.taglist_buttons = awful.util.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -330,9 +332,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "d", function () lain.util.delete_tag() end),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal_with_greater_font) end,
+    --awful.key({ modkey,           }, "Return", function () awful.spawn("emacs") end,
+              --{description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -371,9 +373,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end),
 
     -- Widgets popups
-    awful.key({ altkey, }, "c", function () lain.widget.calendar.show(7) end),
-    awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end),
-    awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end),
+    --awful.key({ altkey, }, "c", function () lain.widget.calendar.show(7) end),
+    --awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end),
+    --awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end),
 
     -- ALSA volume control
     awful.key({}, "XF86AudioRaiseVolume",
@@ -406,23 +408,29 @@ globalkeys = awful.util.table.join(
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",
         function ()
-            awful.spawn.with_shell("mpc toggle")
-            beautiful.mpd.update()
+            os.execute(string.format("amixer set %s 5%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+            --awful.spawn.with_shell("mpc toggle")
+            --beautiful.mpd.update()
         end),
     awful.key({ altkey, "Control" }, "Down",
         function ()
-            awful.spawn.with_shell("mpc stop")
-            beautiful.mpd.update()
+            os.execute(string.format("amixer set %s 5%%-", beautiful.volume.channel))
+            beautiful.volume.update()
+            --awful.spawn.with_shell("mpc stop")
+            --beautiful.mpd.update()
         end),
     awful.key({ altkey, "Control" }, "Left",
         function ()
-            awful.spawn.with_shell("mpc prev")
-            beautiful.mpd.update()
+            os.execute("xbacklight -dec 10")
+            --awful.spawn.with_shell("mpc prev")
+            --beautiful.mpd.update()
         end),
     awful.key({ altkey, "Control" }, "Right",
         function ()
-            awful.spawn.with_shell("mpc next")
-            beautiful.mpd.update()
+            os.execute("xbacklight -inc 10")
+            --awful.spawn.with_shell("mpc next")
+            --beautiful.mpd.update()
         end),
     awful.key({ altkey }, "0",
         function ()
@@ -471,7 +479,9 @@ globalkeys = awful.util.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"})
+              {description = "lua execute prompt", group = "awesome"}),
+    awful.key({ altkey }, "space", function () awful.util.spawn(appfinder) end,
+              {description = "select previous", group = "layout"})
     --]]
 )
 
@@ -589,7 +599,7 @@ awful.rules.rules = {
       properties = { titlebars_enabled = false } },
 
     -- Set Firefox to always map on the first tag on screen 1.
-    { rule = { class = "google-chrome" },
+    { rule = { class = "firefox" },
       properties = { screen = 1, tag = screen[1].tags[1] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },

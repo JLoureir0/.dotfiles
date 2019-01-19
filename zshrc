@@ -103,7 +103,27 @@ for file in $HOME/.zsh/*.zsh; do
 done
 
 # Add composer bin to path for laravel
-[[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]] && export PATH=$PATH:$HOME/.config/composer/vendor/bin
+# [[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]] && export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+# added by Anaconda3 5.3.0 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/eilkahn/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/eilkahn/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/eilkahn/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/home/eilkahn/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
