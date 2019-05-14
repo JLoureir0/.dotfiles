@@ -92,7 +92,7 @@ eval $(dircolors "$ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-dar
 ##
 
 #Ambient Variables
-export EDITOR="nvim"
+export EDITOR="emacs"
 export BROWSER="google-chrome-stable"
 export STEAM_FRAME_FORCE_CLOSE=1
 
