@@ -71,14 +71,16 @@ run_once({
 local chosen_theme               = "multicolor"
 local modkey                     = "Mod4"
 local altkey                     = "Mod1"
-local dejavu_sans_mono_bold_11   = ' -f "DejaVu Sans Mono for Powerline Bold 11"'
-local dejavu_sans_mono_bold_9    = ' -f "DejaVu Sans Mono for Powerline Bold 9"'
+local dejavu_sans_mono_bold_11   = ' -f "DejaVu Sans Mono for Powerline Bold 13"'
+local dejavu_sans_mono_bold_9    = ' -f "DejaVu Sans Mono for Powerline Bold 11"'
 local terminal                   = "tilda" .. dejavu_sans_mono_bold_9 or "gnome-terminal" or "urxvtc" or "xterm"
 local terminal_with_greater_font = "tilda" .. dejavu_sans_mono_bold_11
 local editor                     = os.getenv("EDITOR") or "nano" or "vi"
-local gui_editor                 = "idea.sh"
-local browser                    = "firefox" or "google-chrome-stable"
+local gui_editor                 = "intellij-idea-ultimate-edition"
+local browser                    = "google-chrome-stable"
 local graphics_editor            = "gimp"
+local chat			 = "slack"
+local video 			 = "zoom"
 local appfinder                  = "xfce4-appfinder"
 
 local layouts = {
@@ -236,7 +238,7 @@ globalkeys = awful.util.table.join(
     awful.key({ "Control", altkey }, "l", function() os.execute("xscreensaver-command -lock") end),
 
     -- Hotkeys
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+    awful.key({ modkey,  "Shift"      }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     -- Tag browsing
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -446,14 +448,17 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Copy primary to clipboard (terminals to gtk)
-    awful.key({ modkey }, "c", function () awful.spawn("xsel | xsel -i -b") end),
+    awful.key({ modkey, altkey }, "c", function () awful.spawn("xsel | xsel -i -b") end),
     -- Copy clipboard to primary (gtk to terminals)
-    awful.key({ modkey }, "v", function () awful.spawn("xsel -b | xsel") end),
+    awful.key({ modkey, altkey }, "v", function () awful.spawn("xsel -b | xsel") end),
 
     -- User programs
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
     awful.key({ modkey }, "i", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics_editor) end),
+    awful.key({ modkey }, "c", function () awful.util.spawn(chat) end),
+    awful.key({ modkey }, "v", function () awful.util.spawn(video) end),
+    
 
     -- Default
     --[[ Menubar
