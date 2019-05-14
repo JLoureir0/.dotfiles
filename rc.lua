@@ -59,11 +59,11 @@ run_once({
   "urxvtd",
   "xbanish",
   "compton --backend glx --paint-on-overlay --vsync opengl-swc",
+  "blueman-applet",
   "xbindkeys",
   "xscreensaver -no-splash",
   "xss-lock -- xscreensaver-command -lock",
-  "nm-applet",
-  "knotes"
+  "nm-applet"
 })
 -- }}}
 
