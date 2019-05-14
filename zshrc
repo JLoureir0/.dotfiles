@@ -94,7 +94,6 @@ eval $(dircolors "$ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-dar
 #Ambient Variables
 export EDITOR="nvim"
 export BROWSER="google-chrome-stable"
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export STEAM_FRAME_FORCE_CLOSE=1
 
 #Load extra config files
@@ -127,3 +126,12 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+
+#WORK
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/lex/.sdkman"
+[[ -s "/home/lex/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lex/.sdkman/bin/sdkman-init.sh"
+
+#SDKMAN
+source "/home/lex/.sdkman/bin/sdkman-init.sh"
