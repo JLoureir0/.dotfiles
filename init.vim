@@ -266,7 +266,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:EasyMotion_startofline = 0 " keep cursor on current column after J and K motion
 let g:EasyMotion_smartcase = 1 " work similarly to Vim's smartcase option for G and g motion
 let g:EasyMotion_do_mapping = 0 " no default maps
-map <leader>gf <Plug>(easymotion-sn)
+map <leader>s <Plug>(easymotion-sn)
 " }}}
 
 " vim-easyoperator-line {{{
