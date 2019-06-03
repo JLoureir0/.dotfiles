@@ -56,7 +56,6 @@ local function run_once(cmd_arr)
 end
 
 run_once({
-  "urxvtd",
   "xbanish",
   "compton --backend glx --vsync",
   "blueman-applet",
