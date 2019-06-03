@@ -1,9 +1,9 @@
 
 --[[
-                                       
-     Awesome WM configuration template 
-     github.com/copycat-killer         
-                                       
+
+     Awesome WM configuration template
+     github.com/copycat-killer
+
 --]]
 
 -- {{{ Required libraries
@@ -78,8 +78,8 @@ local editor                     = os.getenv("EDITOR") or "nano" or "vi"
 local gui_editor                 = "intellij-idea-ultimate-edition"
 local browser                    = "google-chrome-stable"
 local graphics_editor            = "gimp"
-local chat			 = "slack"
-local video 			 = "zoom"
+local chat                       = "slack"
+local video                      = "zoom"
 local appfinder                  = "xfce4-appfinder"
 local screenshot                 = "maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i"
 
