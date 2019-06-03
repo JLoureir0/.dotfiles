@@ -85,6 +85,15 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=yellow'
 # bind ctrl+space to accept current suggestion
 bindkey '^ ' autosuggest-accept
 
+# bind ctrl+r to fzf history
+zle -N fh
+bindkey '^r' fh
+# bind alt+r to fzf history with edit
+zle -N fhe
+bindkey '^[r' fhe
+
+alias z=zaw-fasd-directories
+
 # User configuration
 
 ## dircolors-solarized
