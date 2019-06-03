@@ -14,7 +14,6 @@ alias e="$EDITOR"
 alias neo="nvim"
 alias neod="nvim -d"
 alias pms="/home/eilkahn/opt/pms/mps"
-alias screenshot="maim -s /dev/stdout | xclip -selection clipboard -t image/png -i"
 
 #Functions
 alias v="fvi"
@@ -25,6 +24,7 @@ alias V="lvi"
 alias C="lcd"
 alias F="lop"
 
+alias maim-sec="maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i"
 #Work
 
 alias docker-mysql="docker run -v /home/lex/mysql:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7"

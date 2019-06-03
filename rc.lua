@@ -82,6 +82,7 @@ local graphics_editor            = "gimp"
 local chat			 = "slack"
 local video 			 = "zoom"
 local appfinder                  = "xfce4-appfinder"
+local screenshot                 = "maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i"
 
 local layouts = {
     awful.layout.suit.floating,
@@ -458,7 +459,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics_editor) end),
     awful.key({ modkey }, "c", function () awful.util.spawn(chat) end),
     awful.key({ modkey }, "v", function () awful.util.spawn(video) end),
-    
+    awful.key({ modkey }, "p", function () os.execute(screenshot) end),
+
 
     -- Default
     --[[ Menubar
