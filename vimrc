@@ -60,9 +60,6 @@ let mapleader = ","
 "VIMRC
 map <leader>rc :vsplit ~/DotFiles/vimrc<cr>
 
-"Rebind ESC key
-inoremap ii <ESC>
-
 " Extend path to find c++ headers and project's include folder
 set path+=/usr/include/c++/4.8.2,include/
 
