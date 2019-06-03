@@ -11,7 +11,7 @@ Plug 'vim-airline/vim-airline-themes'               " Airline Themes
 Plug 'tpope/vim-fugitive'                           " Vim plugin for git
 Plug 'jreybert/vimagit'                             " Ease your git workflow within Vim
 Plug 'tpope/vim-surround'                           " Plugin for tags
-Plug 'altercation/vim-colors-solarized'             " Solarized theme
+Plug 'connorholyday/vim-snazzy'                     " Snazzy theme for vim
 Plug 'ctrlpvim/ctrlp.vim'                           " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plug 'rking/ag.vim'                                 " Vim plugin for the_silver_searcher
 Plug 'scrooloose/nerdcommenter'                     " Vim plugin for intensely orgasmic commenting
@@ -69,7 +69,7 @@ set background=dark
 set guicursor=a:block-blinkon30
 
 " Color scheme
-colorscheme solarized
+colorscheme snazzy
 hi MatchParen cterm=bold ctermbg=none ctermfg=208 "Little tweak with the matching parents colors
 set lazyredraw " Fixing the slow scroll due to buggy colorscheme regex's
 
