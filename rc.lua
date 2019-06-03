@@ -58,7 +58,7 @@ end
 run_once({
   "urxvtd",
   "xbanish",
-  "compton --backend glx --paint-on-overlay --vsync opengl-swc",
+  "compton --backend glx --vsync",
   "blueman-applet",
   "xbindkeys",
   "xscreensaver -no-splash",

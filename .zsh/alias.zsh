@@ -14,6 +14,7 @@ alias e="$EDITOR"
 alias neo="nvim"
 alias neod="nvim -d"
 alias pms="/home/eilkahn/opt/pms/mps"
+alias screenshot="maim -s /dev/stdout | xclip -selection clipboard -t image/png -i"
 
 #Functions
 alias v="fvi"
