@@ -113,6 +113,9 @@ map <c-l> <c-w>l
 map <Leader>n <esc>:bp<CR>
 map <Leader>m <esc>:bn<CR>
 
+" unload buffer
+map <Leader>d <esc>:bd<CR>
+
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
