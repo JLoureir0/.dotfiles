@@ -9,6 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'                            " Vim status bar
 Plug 'vim-airline/vim-airline-themes'               " Airline Themes
 Plug 'tpope/vim-fugitive'                           " Vim plugin for git
+Plug 'jreybert/vimagit'                             " Ease your git workflow within Vim
 Plug 'tpope/vim-surround'                           " Plugin for tags
 Plug 'altercation/vim-colors-solarized'             " Solarized theme
 Plug 'ctrlpvim/ctrlp.vim'                           " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
@@ -198,6 +199,10 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
 "let g:ctrlp_custom_ignore = '\v[\/](node_modules|lib)$'
 set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d,*.pyc,*.class
+" }}}
+
+" Magit {{{
+map <leader>g :Magit<cr>
 " }}}
 
 " Gist plugin settings {{{
