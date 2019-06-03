@@ -70,10 +70,10 @@ run_once({
 local chosen_theme               = "multicolor"
 local modkey                     = "Mod4"
 local altkey                     = "Mod1"
-local dejavu_sans_mono_bold_11   = ' -f "DejaVu Sans Mono for Powerline Bold 13"'
-local dejavu_sans_mono_bold_9    = ' -f "DejaVu Sans Mono for Powerline Bold 11"'
-local terminal                   = "tilda" .. dejavu_sans_mono_bold_9 or "gnome-terminal" or "urxvtc" or "xterm"
-local terminal_with_greater_font = "tilda" .. dejavu_sans_mono_bold_11
+local font_small                 = ' -f "MesloLGSDZ Nerd Font Mono Bold 13"'
+local font_big                   = ' -f "MesloLGSDZ Nerd Font Mono Bold 11"'
+local terminal                   = "tilda" .. font_small or "gnome-terminal" or "urxvtc" or "xterm"
+local terminal_with_greater_font = "tilda" .. font_big
 local editor                     = os.getenv("EDITOR") or "nano" or "vi"
 local gui_editor                 = "intellij-idea-ultimate-edition"
 local browser                    = "google-chrome-stable"
