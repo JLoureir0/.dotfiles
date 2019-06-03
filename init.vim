@@ -76,9 +76,6 @@ set lazyredraw " Fixing the slow scroll due to buggy colorscheme regex's
 set splitright
 set splitbelow
 
-"Rebind ESC key
-inoremap ii <ESC>
-
 " Rebind <Leader> key
 let mapleader = ","
 
