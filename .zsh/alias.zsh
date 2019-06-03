@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 
 #Config files
-alias eV="neo ~/DotFiles/vimrc"
-alias eN="neo ~/DotFiles/init.vim"
-alias eZ="neo ~/DotFiles/zshrc"
+alias eV="$EDITOR ~/DotFiles/vimrc"
+alias eN="$EDITOR ~/DotFiles/init.vim"
+alias eZ="$EDITOR ~/DotFiles/zshrc"
 alias sZ="source ~/.zshrc"
-alias eA="neo ~/DotFiles/rc.lua"
-alias eX="neo ~/DotFiles/Xresources"
+alias eA="$EDITOR ~/DotFiles/rc.lua"
+alias eX="$EDITOR ~/DotFiles/Xresources"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"
