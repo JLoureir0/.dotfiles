@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme for zsh
-ZSH_THEME="agnoster"
+ZSH_THEME=""
 
 # oh-my-zsh framework plugins
 plugins=(git)
@@ -54,6 +54,10 @@ zplug "seebi/dircolors-solarized"
 
 # A modified version of oh-my-zsh's plugin colored-man-pages, optimized for solarized dark theme in terminal
 zplug "zlsun/solarized-man"
+
+# Pure ZSH theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v
 export CACHE_DIR="${HOME}/.cache"
