@@ -1,4 +1,3 @@
-
 --[[
 
      Awesome WM configuration template
@@ -62,7 +61,8 @@ run_once({
   "xbindkeys",
   "xscreensaver -no-splash",
   "xss-lock -- xscreensaver-command -lock",
-  "nm-applet"
+  "nm-applet",
+  "copyq"
 })
 -- }}}
 
