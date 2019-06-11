@@ -35,8 +35,8 @@ alias docker-udb-run="docker run -d -p 8888:8080 -e "_JAVA_OPTIONS=-Dlogging.lev
 alias docker-udb="docker start nostalgic_thompson"
 
 #MVN
-alias mci="maven clean install"
-alias mvc="maven clean compile"
+alias mci="mvn clean install"
+alias mvc="mvn clean compile"
 
 #SDK man
 alias java-8="sdk use java 8.0.212-zulu"
