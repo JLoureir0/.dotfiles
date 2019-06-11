@@ -34,6 +34,15 @@ alias docker-mysql="docker start amazing_goodall"
 alias docker-udb-run="docker run -d -p 8888:8080 -e "_JAVA_OPTIONS=-Dlogging.level.org.springframework=INFO" udb"
 alias docker-udb="docker start nostalgic_thompson"
 
+#MVN
+alias mci="maven clean install"
+alias mvc="maven clean compile"
+
+#SDK man
+alias java-8="sdk use java 8.0.212-zulu"
+alias java-10="sdk use java 10.0.2-zulu"
+alias java-11="sdk use java 11.0.3-zulu"
+
 #SSH with tunnels
 alias bastion-stage="ssh -L 3307:mysql.cplqfjuc8rfm.eu-west-1.rds.amazonaws.com:3306 bastion-stage"
 alias bastion-prelive="ssh -L 3308:acega-pre-live.cetwe2fvgnkb.eu-west-1.rds.amazonaws.com:3306 bastion-live"
