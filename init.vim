@@ -78,7 +78,7 @@ set lazyredraw " Fixing the slow scroll due to buggy colorscheme regex's
 set splitright
 set splitbelow
 
-" Rebind <Leader> key
+" rebind <leader> key
 let mapleader = ","
 
 "init.vim
@@ -96,8 +96,8 @@ vnoremap <C-Z> <C-C>:update<CR>
 inoremap <C-Z> <C-O>:update<CR>
 
 " Quickquit command
-noremap <Leader>e :quit<CR> " Quit current window
-noremap <Leader>E :qa!<CR> " Quit all windows
+noremap <leader>e :quit<cr> " quit current window
+noremap <leader>e :qa!<cr> " quit all windows
 
 " Folding
 set foldmethod=syntax
@@ -112,17 +112,17 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 
 " easier moving between tabs
-map <Leader>n <esc>:bp<CR>
-map <Leader>m <esc>:bn<CR>
+map <leader>n <esc>:bp<cr>
+map <leader>m <esc>:bn<cr>
 
 " unload buffer
-map <Leader>d <esc>:bd<CR>
+map <leader>d <esc>:bd<cr>
 
 " only current buffer
 map <leader>o <esc>:only<cr>
 
 " map sort function to a key
-vnoremap <Leader>s :sort<CR>
+vnoremap <leader>s :sort<cr>
 
 " easier moving of code blocks
 vnoremap < <gv
