@@ -118,6 +118,9 @@ map <Leader>m <esc>:bn<CR>
 " unload buffer
 map <Leader>d <esc>:bd<CR>
 
+" only current buffer
+map <leader>o <esc>:only<cr>
+
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
