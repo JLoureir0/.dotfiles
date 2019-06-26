@@ -205,7 +205,7 @@ set wildignore+=*.jpg,*.jpeg,*.png*,*.o,*.d,*.pyc,*.class
 " }}}
 
 " Magit {{{
-map <leader>g :Magit<cr>
+map <leader>g :Magit<cr>:only<cr>
 " }}}
 
 " Gist plugin settings {{{
