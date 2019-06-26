@@ -28,7 +28,7 @@ Plug 'easymotion/vim-easymotion'
       \ | Plug 'haya14busa/vim-easyoperator-line'
       \ | Plug 'haya14busa/vim-easyoperator-phrase' " Vim motions on speed!
 Plug 'wellle/targets.vim'                           " Vim plugin that provides additional text objects
-Plug 'bronson/vim-trailing-whitespace'              " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
+Plug 'ntpeters/vim-better-whitespace'               " Better whitespace highlighting for Vim
 
 " }}}
 
@@ -281,6 +281,10 @@ nmap <leader>v <Plug>(easyoperator-line-select)
 " vim-easyoperator-phrase {{{
 let g:EasyOperator_phrase_do_mapping = 0
 nmap <leader>V <Plug>(easyoperator-phrase-select)
+" }}}
+
+" Better Whitespace {{{
+noremap <leader>w :StripWhitespace <CR>
 " }}}
 
 " }}}
