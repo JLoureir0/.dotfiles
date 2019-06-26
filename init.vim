@@ -39,6 +39,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }                           " A better JSO
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }        " A Vim plugin that always highlights the enclosing html/xml tags
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }                " vim plug-in which provides support for expanding abbreviations similar to emmet
 Plug 'Shougo/neco-vim', { 'for': 'vim' }                          " The vim source for neocomplete/deoplete
+Plug 'itchyny/calendar.vim', { 'on': 'Calendar'}                  " A calendar application for Vim
 
 " }}}
 
@@ -281,6 +282,11 @@ nmap <leader>v <Plug>(easyoperator-line-select)
 " vim-easyoperator-phrase {{{
 let g:EasyOperator_phrase_do_mapping = 0
 nmap <leader>V <Plug>(easyoperator-phrase-select)
+" }}}
+
+" Calendar {{{
+let g:calendar_google_calendar = 1
+noremap <leader>c :Calendar -view=week <CR>
 " }}}
 
 " Better Whitespace {{{
