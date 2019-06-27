@@ -97,7 +97,7 @@ inoremap <C-Z> <C-O>:update<CR>
 
 " Quickquit command
 noremap <leader>e :quit<cr> " quit current window
-noremap <leader>e :qa!<cr> " quit all windows
+noremap <leader>E :qa!<cr> " quit all windows
 
 " Folding
 set foldmethod=syntax
