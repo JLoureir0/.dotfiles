@@ -39,7 +39,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }                           " A better JSO
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }        " A Vim plugin that always highlights the enclosing html/xml tags
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }                " vim plug-in which provides support for expanding abbreviations similar to emmet
 Plug 'Shougo/neco-vim', { 'for': 'vim' }                          " The vim source for neocomplete/deoplete
-Plug 'itchyny/calendar.vim', { 'on': 'Calendar'}                  " A calendar application for Vim
+Plug 'itchyny/calendar.vim', { 'on': 'Calendar' }                 " A calendar application for Vim
 
 " }}}
 
