@@ -29,6 +29,7 @@ Plug 'easymotion/vim-easymotion'
       \ | Plug 'haya14busa/vim-easyoperator-phrase' " Vim motions on speed!
 Plug 'wellle/targets.vim'                           " Vim plugin that provides additional text objects
 Plug 'ntpeters/vim-better-whitespace'               " Better whitespace highlighting for Vim
+Plug 'terryma/vim-multiple-cursors'                 " Sublime Text's awesome multiple selection feature
 Plug 'tpope/vim-eunuch'                             " Helpers for UNIX
 
 " }}}
