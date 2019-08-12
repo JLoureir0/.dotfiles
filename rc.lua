@@ -459,6 +459,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "c", function () awful.util.spawn(chat) end),
     awful.key({ modkey }, "v", function () awful.util.spawn(video) end),
     awful.key({ modkey }, "p", function () os.execute(screenshot) end),
+    awful.key({ modkey }, "x", function () os.execute("xrandr --output DP3 --mode 1920x1080 --right-of eDP1 --output DP1 --mode 1920x1200 --rotate left --right-of DP3") end),
+    awful.key({ modkey, "Shift" }, "x", function () os.execute("xrandr --output DP1 --off --output DP3 --off") end),
 
 
     -- Default
