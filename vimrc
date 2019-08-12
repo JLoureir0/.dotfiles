@@ -113,6 +113,12 @@ nnoremap <Leader>m <esc>:tabnext<CR>
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
+" map to move lines
+nnoremap <A-j> ddp
+nnoremap <A-k> ddkP
+vnoremap <A-j> :m+1 <CR> mygv+
+vnoremap <A-k> :m'<-2 <CR> mygv+
+
 " easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv
