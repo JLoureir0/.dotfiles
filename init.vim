@@ -18,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'                     " Vim plugin for intensely o
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Snippets Plugins
 Plug 'majutsushi/tagbar'                            " a class outline viewer for Vim
 Plug 'junegunn/vim-easy-align'                      " Vim script for text filtering and alignment
-Plug 'danro/rename.vim'                             " Rename current file
 Plug 'Chiel92/vim-autoformat'                       " Provide easy code formatting in Vim
 Plug 'ryanoasis/vim-devicons'                       " adds font icons
 Plug 'Raimondi/delimitMate'                         " provides insert mode auto-completion for quotes, parens, brackets, etc.
@@ -29,6 +28,7 @@ Plug 'easymotion/vim-easymotion'
       \ | Plug 'haya14busa/vim-easyoperator-phrase' " Vim motions on speed!
 Plug 'wellle/targets.vim'                           " Vim plugin that provides additional text objects
 Plug 'ntpeters/vim-better-whitespace'               " Better whitespace highlighting for Vim
+Plug 'tpope/vim-eunuch'                             " Helpers for UNIX
 
 " }}}
 
