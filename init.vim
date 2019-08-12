@@ -262,9 +262,8 @@ let g:vim_json_syntax_conceal = 0
 " }}}
 
 " NeoMake {{{
-let g:neomake_java_enabled_makers = ['javac']
-
-autocmd! BufWritePost * Neomake
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')
 " }}}
 
 " Deoplete {{{
