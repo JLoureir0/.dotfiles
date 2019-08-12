@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+#Pro tips
+
+alias please='_ $(fc -ln -1)'
+
 #Config files
 alias eV="$EDITOR ~/DotFiles/vimrc"
 alias eN="$EDITOR ~/DotFiles/init.vim"
