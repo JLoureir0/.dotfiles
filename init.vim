@@ -88,9 +88,9 @@ map <leader>rc :vsplit ~/DotFiles/init.vim<cr>
 
 " Bind nohl
 " Removes highlight of your last search
-noremap <C-n> :nohl<CR>
-vnoremap <C-n> <C-C>:nohl<CR>
-inoremap <C-n> <C-O>:nohl<CR>
+noremap <leader>N :nohl<CR>
+vnoremap <leader>N <C-C>:nohl<CR>
+inoremap <leader>N <C-O>:nohl<CR>
 
 " Quicksave command
 noremap <C-Z> :update<CR>
