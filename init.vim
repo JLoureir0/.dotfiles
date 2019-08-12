@@ -9,6 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'                            " Vim status bar
 Plug 'vim-airline/vim-airline-themes'               " Airline Themes
 Plug 'tpope/vim-fugitive'                           " Vim plugin for git
+Plug 'airblade/vim-gitgutter'                       " A Vim plugin which shows a git diff in the 'gutter'
 Plug 'jreybert/vimagit'                             " Ease your git workflow within Vim
 Plug 'tpope/vim-surround'                           " Plugin for tags
 Plug 'connorholyday/vim-snazzy'                     " Snazzy theme for vim
