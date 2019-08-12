@@ -124,7 +124,7 @@ map <leader>d <esc>:bd<cr>
 map <leader>o <esc>:only<cr>
 
 " map sort function to a key
-vnoremap <leader>s :sort<cr>
+vnoremap <leader>S :sort<cr>
 
 " easier moving of code blocks
 vnoremap < <gv
