@@ -69,13 +69,13 @@ filetype off
 syntax on
 
 " Background
-set background=dark
+set background=light
 
 " Cursor behaviour
 set guicursor=a:block-blinkon30
 
 " Color scheme
-colorscheme snazzy
+colorscheme jellybeans
 hi MatchParen cterm=bold ctermbg=none ctermfg=208 "Little tweak with the matching parents colors
 set lazyredraw " Fixing the slow scroll due to buggy colorscheme regex's
 
