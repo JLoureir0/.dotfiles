@@ -86,7 +86,7 @@ local graphics_editor            = "gimp"
 local chat                       = "slack"
 local video                      = "zoom"
 local appfinder                  = "xfce4-appfinder"
-local screenshot                 = "maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i"
+local screenshot                 = "flameshot gui"
 
 local layouts = {
     awful.layout.suit.floating,
