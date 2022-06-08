@@ -220,7 +220,7 @@ map <leader>g :Magit<cr>:only<cr>
 " Gist plugin settings {{{
 let g:gist_detect_filetype = 1 " Detect filetype
 let g:gist_open_browser_after_post = 1 " Open browser after the post
-map <leader>gi :Gist<cr>
+map <leader>gi :Gist -p<cr>
 " }}}
 
 " Silver Searcher {{{
