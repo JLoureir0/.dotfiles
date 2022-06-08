@@ -13,6 +13,7 @@ Plug 'airblade/vim-gitgutter'                       " A Vim plugin which shows a
 Plug 'jreybert/vimagit'                             " Ease your git workflow within Vim
 Plug 'tpope/vim-surround'                           " Plugin for tags
 Plug 'connorholyday/vim-snazzy'                     " Snazzy theme for vim
+Plug 'nanotech/jellybeans.vim'                      " Jellybeans theme for vim
 Plug 'ctrlpvim/ctrlp.vim'                           " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plug 'rking/ag.vim'                                 " Vim plugin for the_silver_searcher
 Plug 'scrooloose/nerdcommenter'                     " Vim plugin for intensely orgasmic commenting
