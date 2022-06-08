@@ -41,6 +41,9 @@ alias docker-udb="docker start udb"
 #MVN
 alias mvi="mvn clean install"
 alias mvc="mvn clean compile"
+alias mvt="mvn clean test"
+alias mvtc="mvn clean test-compile"
+alias mvg="mvn clean generate-sources"
 
 #SDK man
 alias java-8="sdk use java 8.0.212-zulu"
