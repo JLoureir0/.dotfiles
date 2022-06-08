@@ -63,6 +63,7 @@ run_once({
   "xss-lock -- xscreensaver-command -lock",
   "nm-applet",
   "copyq"
+  "flameshot",
   "mailspring",
   "emacs --daemon"
 })
