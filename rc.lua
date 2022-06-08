@@ -87,6 +87,7 @@ local chat                       = "slack"
 local video                      = "zoom"
 local appfinder                  = "xfce4-appfinder"
 local screenshot                 = "flameshot gui"
+local notes                      = "nixnote2"
 
 local layouts = {
     awful.layout.suit.floating,
@@ -467,6 +468,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "x", function () os.execute("xrandr --output DP3 --mode 1920x1080 --right-of eDP1 --output DP1 --mode 1920x1200 --rotate left --right-of DP3") end),
     awful.key({ modkey, "Shift" }, "x", function () os.execute("xrandr --output DP1 --off --output DP3 --off") end),
 
+    awful.key({ modkey }, "n", function () awful.util.spawn(notes) end),
 
     -- Default
     --[[ Menubar
@@ -516,7 +518,7 @@ clientkeys = awful.util.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "n",
+    awful.key({ modkey, "Shift"   }, "m",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
