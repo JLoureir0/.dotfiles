@@ -62,8 +62,9 @@ run_once({
   "xscreensaver -no-splash",
   "xss-lock -- xscreensaver-command -lock",
   "nm-applet",
-  "copyq"
+  "touchegg",
   "flameshot",
+  "copyq",
   "mailspring",
   "emacs --daemon"
 })
