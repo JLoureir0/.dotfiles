@@ -151,6 +151,10 @@ export SDKMAN_DIR="/home/lex/.sdkman"
 #SDKMAN
 source "/home/lex/.sdkman/bin/sdkman-init.sh"
 
+
+#DOOM
+PATH="$HOME/.emacs.d/bin:$PATH"
+
 #AWS
 export AWS_PROFILE=cintegration
 
