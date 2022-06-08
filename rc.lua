@@ -56,7 +56,7 @@ end
 
 run_once({
   "xbanish",
-  "compton --backend glx --vsync",
+  "picom -c -l0 -t0 -r0 -o1.00 -i1.00 -m1 -b --backend glx",
   "blueman-applet",
   "xbindkeys",
   "xscreensaver -no-splash",
