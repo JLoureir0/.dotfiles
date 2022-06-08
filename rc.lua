@@ -461,6 +461,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, altkey }, "v", function () awful.spawn("xsel -b | xsel") end),
 
     -- User programs
+    awful.key({ modkey }, "d",
+        function()
+            awful.spawn.with_shell("rofi -matching fuzzy -show combi")
+        end,
+        {description = "rofi launcher", group = "launcher"}),
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
     awful.key({ modkey }, "i", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics_editor) end),
