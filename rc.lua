@@ -63,6 +63,7 @@ run_once({
   "xss-lock -- xscreensaver-command -lock",
   "nm-applet",
   "touchegg",
+  --"gxkb",
   "flameshot",
   "copyq",
   "mailspring",
