@@ -32,11 +32,11 @@ alias maim-sec="maim -s --format=png /dev/stdout | xclip -selection clipboard -t
 
 #Docker
 #MySQL
-alias docker-mysql-run="docker run -v /home/lex/mysql:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7"
-alias docker-mysql="docker start amazing_goodall"
+alias docker-mysql-run="docker run -v /home/lex/mysql:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d --name=mysql-5.7 mysql:5.7"
+alias docker-mysql="docker start mysql-5.7"
 #UDB
-alias docker-udb-run="docker run -d -p 8888:8080 -e "_JAVA_OPTIONS=-Dlogging.level.org.springframework=INFO" udb"
-alias docker-udb="docker start nostalgic_thompson"
+alias docker-udb-run="docker run -d -p 8888:8080 -e "_JAVA_OPTIONS=-Dlogging.level.org.springframework=INFO" --name=udb udb"
+alias docker-udb="docker start udb"
 
 #MVN
 alias mvi="mvn clean install"
