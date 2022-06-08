@@ -64,6 +64,7 @@ run_once({
   "nm-applet",
   "copyq"
   "mailspring",
+  "emacs --daemon"
 })
 -- }}}
 
