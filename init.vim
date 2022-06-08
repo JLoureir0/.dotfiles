@@ -133,6 +133,10 @@ vnoremap <leader>S :sort<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+" Remap omnifunc to ctrl+space
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+
 " map git commands
 map <leader>gs  :!clear && git status -s<cr>
 map <leader>gr  :!clear && git reset<space>
