@@ -622,11 +622,11 @@ awful.rules.rules = {
       properties = { titlebars_enabled = false } },
 
     -- Set Firefox to always map on the first tag on screen 1.
-    { rule = { class = "firefox" },
-      properties = { screen = 1, tag = screen[1].tags[1] } },
+    --{ rule = { class = "firefox" },
+      --properties = { screen = 1, tag = screen[1].tags[1] } },
 
-    { rule = { class = "Gimp", role = "gimp-image-window" },
-          properties = { maximized = true, screen = 1, tag = screen[1].tags[4] } },
+    --{ rule = { class = "Gimp", role = "gimp-image-window" },
+          --properties = { maximized = true, screen = 1, tag = screen[1].tags[4] } },
 }
 -- }}}
 
