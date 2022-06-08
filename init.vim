@@ -33,6 +33,7 @@ Plug 'wellle/targets.vim'                           " Vim plugin that provides a
 Plug 'ntpeters/vim-better-whitespace'               " Better whitespace highlighting for Vim
 Plug 'terryma/vim-multiple-cursors'                 " Sublime Text's awesome multiple selection feature
 Plug 'tpope/vim-eunuch'                             " Helpers for UNIX
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }  " This plugin adds Go language support for Vim, with the following main features:
 
 " }}}
 
