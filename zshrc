@@ -151,6 +151,9 @@ export SDKMAN_DIR="/home/lex/.sdkman"
 #SDKMAN
 source "/home/lex/.sdkman/bin/sdkman-init.sh"
 
+#NPM
+PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
 
 #DOOM
 PATH="$HOME/.emacs.d/bin:$PATH"
