@@ -475,6 +475,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "x", function () os.execute("xrandr --output DP3 --mode 2560x1440 --rate 144 --left-of eDP1 --output eDP1 --mode 1920x1080") end),
     awful.key({ modkey, "Shift" }, "x", function () os.execute("xrandr --output DP1 --off --output DP3 --off") end),
     awful.key({ modkey }, "n", function () awful.util.spawn(notes) end),
+    awful.key({ modkey }, ".", function () os.execute("setxkbmap pt") end),
+    awful.key({ modkey, "Shift" }, ".", function () os.execute("setxkbmap us") end),
 
     -- Default
     --[[ Menubar
