@@ -150,3 +150,10 @@ export SDKMAN_DIR="/home/lex/.sdkman"
 
 #SDKMAN
 source "/home/lex/.sdkman/bin/sdkman-init.sh"
+
+#AWS
+export AWS_PROFILE=cintegration
+
+# aws cli completion start
+autoload bashcompinit && bashcompinit
+# aws cli completion end
