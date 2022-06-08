@@ -46,11 +46,11 @@ alias mvtc="mvn clean test-compile"
 alias mvg="mvn clean generate-sources"
 
 #SDK man
-alias java-8="sdk use java 8.0.212-zulu"
+alias java-8="sdk use java 8.0.222-zulu"
 alias java-10="sdk use java 10.0.2-zulu"
-alias java-11="sdk use java 11.0.3-zulu"
 
 #SSH with tunnels
 alias bastion-stage="ssh -L 3307:mysql.cplqfjuc8rfm.eu-west-1.rds.amazonaws.com:3306 bastion-stage"
 alias bastion-prelive="ssh -L 3308:acega-pre-live.cetwe2fvgnkb.eu-west-1.rds.amazonaws.com:3306 bastion-live"
 alias bastion-live="ssh -L 3309:cbo-acega-live.cetwe2fvgnkb.eu-west-1.rds.amazonaws.com:3306 bastion-live"
+alias java-11="sdk use java 11.0.4-zulu"
