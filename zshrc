@@ -49,15 +49,17 @@ zplug "zsh-users/zaw", defer:1
 # Little script to create, navigate and delete bookmarks in Bash and Zsh, using the fuzzy finder fzf
 zplug "urbainvaes/fzf-marks"
 
-# This is a repository of themes for GNU ls (configured via GNU dircolors) that support Ethan Schoonover’s Solarized color scheme
-zplug "seebi/dircolors-solarized"
-
 # A modified version of oh-my-zsh's plugin colored-man-pages, optimized for solarized dark theme in terminal
 zplug "zlsun/solarized-man"
 
+# Dir colors for the jellybeans theme
+zplug "tdwyer/dircolors-jellybeans"
+
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
 # Pure ZSH theme
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+#zplug mafredri/zsh-async, from:github
+#zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v
 export CACHE_DIR="${HOME}/.cache"
@@ -101,7 +103,7 @@ alias z=zaw-fasd-directories
 # User configuration
 
 ## dircolors-solarized
-eval $(dircolors "$ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.ansi-dark")
+eval $(dircolors "$ZPLUG_HOME/repos/tdwyer/dircolors-jellybeans/dircolors.ansi")
 ##
 
 #Ambient Variables
