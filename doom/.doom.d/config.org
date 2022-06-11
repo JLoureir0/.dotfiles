@@ -163,11 +163,20 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
 
 #+begin_src emacs-lisp
 (after! magit
+  (add-hook 'git-commit-setup-hook
+          'turn-off-auto-fill
+          ;; append rather than prepend to git-commit-mode-hook, since the
+          ;; thing that turns auto-fill-mode on in the first place is itself
+          ;; another hook on git-commit-mode.
+          t)
+  (setq git-commit-summary-max-length 256))
+#+end_src
+
+#+begin_src emacs-lisp
+(after! magit
   (setq company-dabbrev-code-other-buffers 'all)
 
   (defun my--git-commit-setup-hook ()
-    (setq-local fill-column 72)
-
     ;; This enables us to use company completion inside of the git-commit message
     ;; buffer to complete things from the accompanying diff buffer. This is very
     ;; useful when talking about affected functions, variables, etc.
@@ -175,7 +184,7 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
     (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
     )
 
-  (add-hook 'git-commit-setup-hook #'my--git-commit-setup-hook)  )
+  (add-hook 'git-commit-setup-hook #'my--git-commit-setup-hook))
 #+end_src
 
 * PACKAGES
