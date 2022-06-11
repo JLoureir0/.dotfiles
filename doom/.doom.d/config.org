@@ -40,6 +40,10 @@ Using the font MesloLGSDZ for all emacs
 
 * Unspecified for now
 
+#+begin_src emacs-lisp
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
+#+end_src
 
 #+begin_src emacs-lisp
 (setq doom-leader-key ",")
