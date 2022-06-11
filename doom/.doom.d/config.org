@@ -123,11 +123,15 @@ Using the font MesloLGSDZ for all emacs
   '(org-level-5 ((t (:inherit outline-5 :height 1.0)))))
 #+end_src
 
+In order to have org-gcal working don't forget to setup a file called =gcal-secrets.el= with the =org-gcal-client-id= and =org-gcal-client-secret= variables defined there.
+
 #+begin_src emacs-lisp
-(setq org-gcal-client-id "CHANGE ME"
-        org-gcal-client-secret "CHANGE ME"
-        org-gcal-file-alist '(("joao.loureiro@mindera.com" . "~/Documents/orgfiles/schedule.org")
-                              ("joao.a.g.loureiro@gmail.com" .  "~/Documents/orgfiles/bdays.org")))
+(load-file (expand-file-name "~/.doom.d/gcal-secrets.el"))
+#+end_src
+
+#+begin_src emacs-lisp
+(setq org-gcal-file-alist '(("joao.loureiro@mindera.com" . "~/Documents/orgfiles/schedule.org")
+                            ("joao.a.g.loureiro@gmail.com" .  "~/Documents/orgfiles/bdays.org")))
 
 #+end_src
 
