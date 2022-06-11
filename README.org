@@ -1,0 +1,79 @@
+#+TITLE: Lex's .dotfiles Config
+#+AUTHOR: Lex
+#+DESCRIPTION: Dotfiles config repository and how to install
+#+PROPERTY: header-args :tangle "install.sh" :shebang #!/bin/sh
+#+STARTUP: overview
+#+LANGUAGE: en
+#+OPTIONS: num:nil
+
+* .dotfiles
+
+This repository contains my personal =.dotfiles= and a easy way to install them using =stow=
+
+** Configuration Files
+
+This repository has configuration files for the following:
+
+- [[https://alacritty.org/][Alacritty]]
+- [[https://awesomewm.org/][Awesome: window manager]]
+- [[https://www.gnu.org/software/bash/][Bash - GNU Project - Free Software Foundation]]
+- [[https://linux.die.net/man/5/dir_colors][dir_colors(5): config file for dircolors]]
+- [[https://fishshell.com/][fish shell]]
+- [[https://neovim.io/][Neovim]]
+- [[https://github.com/lanoxx/tilda][tilda: A Gtk based drop down terminal for Linux and Unix]]
+- [[https://github.com/tmux/tmux][tmux: a terminal multiplexer]]
+- [[https://www.vim.org/][vim]]
+- [[https://www.nongnu.org/xbindkeys/xbindkeys.html][XBindKeys]]
+- [[https://www.zsh.org/][Zsh]]
+
+** Tools
+
+Tools used in the install script in order to download all the dependencies and organize the configuration files to all programs listed in [[*Configuration Files]]
+
+- [[https://nixos.org/download.html][Nix - Getting Nix / NixOS]]
+- [[https://www.gnu.org/software/stow/][Stow - GNU Project - Free Software Foundation]]
+
+** Installation
+
+1. Clone this repository
+2. Run install.sh
+3. Relaunch your terminal
+
+*** install.sh
+
+**** Nix
+
+Install Nix package manager
+
+#+begin_src sh
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
+#+end_src
+
+Source Nix
+
+#+begin_src sh
+. ~/.nix-profile/etc/profile.d/nix.sh
+#+end_src
+
+Install packages
+
+#+begin_src sh
+nix-env -iA \
+	nixpkgs.stow
+#+end_src
+
+**** Stow
+
+Stow dotfiles into the correct location
+
+#+begin_src sh
+stow allacritty
+[ `uname -s` = 'Linux' ] && stow awesome
+stow doom
+stow git
+stow nvim
+[ `uname -s` = 'Darwin' ] && stow tmux
+stow vim
+stow X11
+stow zsh
+#+end_src
