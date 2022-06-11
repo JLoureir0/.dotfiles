@@ -144,12 +144,6 @@ unset __conda_setup
 
 #WORK
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/lex/.sdkman"
-[[ -s "/home/lex/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lex/.sdkman/bin/sdkman-init.sh"
-
-#SDKMAN
-source "/home/lex/.sdkman/bin/sdkman-init.sh"
 
 #NPM
 PATH="$HOME/.node_modules/bin:$PATH"
@@ -176,3 +170,10 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 # pip zsh completion end
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/lex/.sdkman"
+[[ -s "/home/lex/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lex/.sdkman/bin/sdkman-init.sh"
+
+#SDKMAN
+source "/home/lex/.sdkman/bin/sdkman-init.sh"
