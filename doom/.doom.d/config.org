@@ -1,0 +1,204 @@
+#+TITLE: Lex's Doom Emacs Config
+#+AUTHOR: Lex
+#+DESCRIPTION: File containing personal configuration for Doom Emacs
+#+STARTUP: overview
+#+LANGUAGE: en
+#+OPTIONS: num:nil
+
+* Table of Contents :toc:
+- [[#ui][UI]]
+  - [[#global][GLOBAL]]
+    - [[#theme][Theme]]
+    - [[#fonts][Fonts]]
+  - [[#editor][EDITOR]]
+    - [[#line-numbers][Line Numbers]]
+- [[#unspecified-for-now][Unspecified for now]]
+- [[#packages][PACKAGES]]
+  - [[#ui-1][UI]]
+    - [[#dashboard][DASHBOARD]]
+    - [[#beacon][BEACON]]
+    - [[#modeline][MODELINE]]
+
+* UI
+** GLOBAL
+*** Theme
+#+begin_src emacs-lisp
+(load-theme 'spacemacs-dark t)
+#+end_src
+*** Fonts
+Using the font MesloLGSDZ for all emacs
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil :font "MesloLGSDZ Nerd Font Mono-14")
+#+end_src
+
+** EDITOR
+*** Line Numbers
+
+#+begin_src emacs-lisp
+(setq display-line-numbers-type 'relative)
+#+end_src
+
+* Unspecified for now
+
+
+#+begin_src emacs-lisp
+(setq doom-leader-key ",")
+(setq doom-leader-alt-key "M-,")
+(setq doom-localleader-key ", m")
+(setq doom-localleader-alt-key "M-, m")
+#+end_src
+
+#+begin_src emacs-lisp
+(setq toc-org-max-depth 3)
+#+end_src
+
+#+begin_src emacs-lisp
+(map! :leader
+ :desc "Find file vertical split" "f v" #'find-file-other-window)
+#+end_src
+
+#+begin_src emacs-lisp
+(map! :leader
+ :desc "Align code base on expression" "c a" #'align-regexp)
+#+end_src
+
+#+begin_src emacs-lisp
+(setq show-trailing-whitespace t)
+#+end_src
+
+#+begin_src emacs-lisp
+(add-to-list 'auto-mode-alist '("\\.xml\\'" . web-mode))
+#+end_src
+
+#+begin_src emacs-lisp
+(setq web-mode-enable-current-element-highlight t)
+#+end_src
+
+#+begin_src emacs-lisp
+(map! :desc "Search within file" "C-s" #'consult-line)
+#+end_src
+
+#+begin_src emacs-lisp
+(setq auto-save-default nil)
+#+end_src
+
+#+begin_src emacs-lisp
+(map! :leader "w s" #'+evil/window-split-and-follow)
+(map! :leader "w S" #'evil-window-split)
+(map! :leader "w v" #'+evil/window-vsplit-and-follow)
+(map! :leader "w V" #'evil-window-vsplit)
+#+end_src
+
+#+begin_src emacs-lisp
+(after! persp-mode (setq persp-auto-save-opt 0))
+#+end_src
+
+#+begin_src emacs-lisp
+(after! org
+  (setq org-directory "~/Documents/orgfiles"
+        org-startup-folded "overview"
+        org-log-done 'time
+        org-agenda-files (list "~/Documents/orgfiles/schedule.org"
+                             "~/Documents/orgfiles/bdays.org"
+                             "~/Documents/orgfiles/main.org")
+        org-agenda-span 15
+        org-deadline-warning-days 30))
+#+end_src
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("e" . "open file")
+       :desc "Edit agenda file" "a" #'(lambda () (interactive) (find-file "~/Documents/orgfiles/main.org"))
+       :desc "Edit doom config.org" "c" #'(lambda () (interactive) (find-file "~/.doom.d/config.org"))
+       :desc "Edit doom init.el" "i" #'(lambda () (interactive) (find-file "~/.doom.d/init.el"))
+       :desc "Edit doom packages.el" "p" #'(lambda () (interactive) (find-file "~/.doom.d/packages.el"))))
+#+end_src
+
+#+begin_src emacs-lisp
+(custom-set-faces
+  '(org-level-1 ((t (:inherit outline-1 :height 1.4))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.3))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.1))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.0)))))
+#+end_src
+
+#+begin_src emacs-lisp
+(setq org-gcal-client-id "CHANGE ME"
+        org-gcal-client-secret "CHANGE ME"
+        org-gcal-file-alist '(("joao.loureiro@mindera.com" . "~/Documents/orgfiles/schedule.org")
+                              ("joao.a.g.loureiro@gmail.com" .  "~/Documents/orgfiles/bdays.org")))
+
+#+end_src
+
+#+begin_src emacs-lisp
+(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+#+end_src
+
+#+begin_src emacs-lisp
+(setq org-capture-templates
+      '(("a" "Appointment" entry (file+headline "~/Documents/orgfiles/schedule.org" "Appointments")           "* %^{Appointment? }\n  :PROPERTIES:\n  :LOCATION: %^{Location? }\n  :END:\n\n  %^T%?")
+        ("n" "Note" entry (file+headline "~/Documents/orgfiles/notes.org" "Notes")
+         "* %?\n%T")
+        ("l" "Link" entry (file+headline "~/Documents/orgfiles/links.org" "Links")
+         "* %? %^L %^g \n%T" :prepend t)
+        ("t" "To Do Item" entry (file+headline "~/Documents/orgfiles/main.org" "To Do Items")
+         "* TODO %?" :prepend t)
+        ("j" "Journal" entry (file+datetree "~/Documents/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+#+end_src
+
+#+begin_src emacs-lisp
+(after! magit
+  (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+#+end_src
+
+#+begin_src emacs-lisp
+(after! magit
+  (setq company-dabbrev-code-other-buffers 'all)
+
+  (defun my--git-commit-setup-hook ()
+    (setq-local fill-column 72)
+
+    ;; This enables us to use company completion inside of the git-commit message
+    ;; buffer to complete things from the accompanying diff buffer. This is very
+    ;; useful when talking about affected functions, variables, etc.
+    (setq-local company-backends '(company-dabbrev-code))
+    (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
+    )
+
+  (add-hook 'git-commit-setup-hook #'my--git-commit-setup-hook)  )
+#+end_src
+
+* PACKAGES
+** UI
+*** DASHBOARD
+
+#+begin_src emacs-lisp
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+(setq dashboard-startup-banner "~/.doom.d/img/dashLogo.png")
+(setq dashboard-items '((recents . 5)
+                        (agenda . 7)
+                        (projects . 5)))
+(setq dashboard-banner-logo-title "")
+(dashboard-setup-startup-hook)
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+#+end_src
+
+*** BEACON
+
+#+begin_src emacs-lisp
+(beacon-mode 1)
+#+end_src
+
+*** MODELINE
+
+#+begin_src emacs-lisp
+(set-face-attribute 'mode-line nil :font "MesloLGSDZ Nerd Font Mono-18")
+(setq doom-modeline-height 30     ;; sets modeline height
+      doom-modeline-bar-width 5   ;; sets right bar width
+      doom-modeline-persp-name t  ;; adds perspective name to modeline
+      doom-modeline-persp-icon t) ;; adds folder icon next to persp name
+#+end_src
+
