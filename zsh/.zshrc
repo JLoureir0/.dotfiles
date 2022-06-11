@@ -144,6 +144,8 @@ unset __conda_setup
 
 #WORK
 
+#NIX
+source ~/.nix-profile/etc/profile.d/nix.sh
 
 #NPM
 PATH="$HOME/.node_modules/bin:$PATH"
