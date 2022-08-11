@@ -194,6 +194,20 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
 #+end_src
 
 #+begin_src emacs-lisp
+(setq lsp-java-java-path (expand-file-name "~/.sdkman/candidates/java/current/bin/java"))
+(setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
+                                         :path (expand-file-name "~/.sdkman/candidates/java/8.0.222-zulu"))
+                                        (:name "JavaSE-10"
+                                         :path (expand-file-name "~/.sdkman/candidates/java/10.0.2-zulu"))
+                                        (:name "JavaSE-11"
+                                         :path (expand-file-name "~/.sdkman/candidates/java/11.0.4-zulu"))
+                                        (:name "JavaSE-17"
+                                         :path (expand-file-name "~/.sdkman/candidates/java/17.0.3-zulu"))
+                                        (:name "JavaSE-18"
+                                         :path (expand-file-name "~/.sdkman/candidates/java/18.0.1-zulu"))])
+#+end_src
+
+#+begin_src emacs-lisp
 (setq projectile-track-known-projects-automatically nil)
 #+end_src
 
