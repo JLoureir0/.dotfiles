@@ -210,6 +210,10 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
 (setq projectile-current-project-on-switch 'move-to-end)
 #+end_src
 
+#+begin_src emacs-lisp
+(setq neo-window-fixed-size nil)
+#+end_src
+
 * PACKAGES
 ** UI
 *** DASHBOARD
