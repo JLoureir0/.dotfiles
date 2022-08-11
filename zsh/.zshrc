@@ -173,9 +173,7 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/lex/.sdkman"
-[[ -s "/home/lex/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lex/.sdkman/bin/sdkman-init.sh"
-
-#SDKMAN
-source "/home/lex/.sdkman/bin/sdkman-init.sh"
+# SDKMAN
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
