@@ -30,6 +30,7 @@
 Using the font MesloLGSDZ for all emacs
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil :font "MesloLGSDZ Nerd Font Mono-14")
+(set-face-attribute 'font-lock-keyword-face nil :weight 'bold)
 #+end_src
 
 ** EDITOR
