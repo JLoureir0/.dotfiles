@@ -52,4 +52,5 @@
 (package! dashboard)
 (package! beacon)
 (package! spacemacs-theme)
+(package! monokai-theme)
 (package! org-gcal)

@@ -23,7 +23,8 @@
 ** GLOBAL
 *** Theme
 #+begin_src emacs-lisp
-(load-theme 'spacemacs-dark t)
+(load-theme 'monokai t)
+
 #+end_src
 *** Fonts
 Using the font MesloLGSDZ for all emacs
