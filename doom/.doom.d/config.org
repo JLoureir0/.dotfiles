@@ -146,7 +146,7 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
 #+end_src
 
 #+begin_src emacs-lisp
-(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+;; (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
 #+end_src
 
 #+begin_src emacs-lisp
