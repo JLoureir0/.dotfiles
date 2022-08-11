@@ -85,7 +85,7 @@ local graphics_editor            = "gimp"
 local chat                       = "slack"
 local video                      = "zoom"
 local appfinder                  = "xfce4-appfinder"
-local screenshot                 = "flameshot gui"
+local screenshot                 = "flameshot gui &"
 local notes                      = "nixnote2"
 
 local layouts = {
