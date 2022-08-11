@@ -239,7 +239,7 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
 *** MODELINE
 
 #+begin_src emacs-lisp
-(set-face-attribute 'mode-line nil :font "MesloLGSDZ Nerd Font Mono-18")
+(set-face-attribute 'mode-line nil :font "MesloLGSDZ Nerd Font Mono-14")
 (setq doom-modeline-height 30     ;; sets modeline height
       doom-modeline-bar-width 5   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
