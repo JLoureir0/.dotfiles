@@ -44,3 +44,5 @@ then
 fi
 
 curl -s "https://get.sdkman.io" | bash
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

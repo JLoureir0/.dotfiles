@@ -124,3 +124,11 @@ Install SDKMAN
 #+begin_src sh
 curl -s "https://get.sdkman.io" | bash
 #+end_src
+
+**** oh-my-zsh
+
+Install oh-my-zsh
+
+#+begin_src sh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#+end_src
