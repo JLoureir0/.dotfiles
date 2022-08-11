@@ -107,7 +107,7 @@ eval $(dircolors "$ZPLUG_HOME/repos/tdwyer/dircolors-jellybeans/dircolors.ansi")
 ##
 
 #Ambient Variables
-export EDITOR="emacsclient -c -a 'emacs'"
+export EDITOR="nvim"
 export BROWSER="google-chrome-stable"
 export STEAM_FRAME_FORCE_CLOSE=1
 

@@ -66,8 +66,7 @@ run_once({
   --"gxkb",
   "flameshot",
   "copyq",
-  "mailspring",
-  "emacs --daemon"
+  "mailspring"
 })
 -- }}}
 
