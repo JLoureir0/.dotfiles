@@ -197,6 +197,10 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
 (setq projectile-track-known-projects-automatically nil)
 #+end_src
 
+#+begin_src emacs-lisp
+(setq doom-modeline-buffer-file-name-style 'truncate-with-project)
+#+end_src
+
 * PACKAGES
 ** UI
 *** DASHBOARD
