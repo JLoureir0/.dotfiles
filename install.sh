@@ -11,6 +11,14 @@ nix-env -iA \
 	nixpkgs.emacs \
 	nixpkgs.vim \
 	nixpkgs.neovim \
+	nixpkgs.flameshot \
+	nixpkgs.google-chrome \
+	nixpkgs.postman \
+	nixpkgs.slack \
+	nixpkgs.discord \
+	nixpkgs.zoom \
+	nixpkgs.krita \
+	nixpkgs.virtualboxWithExtpack \
     nixpkgs.jetbrains.idea-ultimate
 
 stow allacritty
