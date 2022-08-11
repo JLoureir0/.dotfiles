@@ -193,6 +193,10 @@ In order to have org-gcal working don't forget to setup a file called =gcal-secr
   (add-hook 'git-commit-setup-hook #'my--git-commit-setup-hook))
 #+end_src
 
+#+begin_src emacs-lisp
+(setq projectile-track-known-projects-automatically nil)
+#+end_src
+
 * PACKAGES
 ** UI
 *** DASHBOARD
