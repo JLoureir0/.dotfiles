@@ -5,12 +5,11 @@
 alias please='_ $(fc -ln -1)'
 
 #Config files
-alias eV="$EDITOR ~/DotFiles/vimrc"
-alias eN="$EDITOR ~/DotFiles/init.vim"
-alias eZ="$EDITOR ~/DotFiles/zshrc"
+alias eV="$EDITOR ~/.dotfiles/vim/.vimrc"
+alias eN="$EDITOR ~/.dotfiles/nvim/.config/nvim/init.vim"
+alias eZ="$EDITOR ~/.dotfiles/zsh/.zshrc"
 alias sZ="source ~/.zshrc"
-alias eA="$EDITOR ~/DotFiles/rc.lua"
-alias eX="$EDITOR ~/DotFiles/Xresources"
+alias eA="$EDITOR ~/.dotfiles/awesome/.config/awesome/rc.lua"
 
 #Apps
 alias hogs="sudo nethogs wlp3s0"
