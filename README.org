@@ -31,7 +31,9 @@ This repository has configuration files for the following:
 Tools used in the install script in order to download all the dependencies and organize the configuration files to all programs listed in [[*Configuration Files]]
 
 - [[https://nixos.org/download.html][Nix - Getting Nix / NixOS]]
+- [[https://brew.sh/][The Missing Package Manager for macOS (or Linux) — Homebrew]]
 - [[https://www.gnu.org/software/stow/][Stow - GNU Project - Free Software Foundation]]
+- [[https://sdkman.io/][Home - SDKMAN! the Software Development Kit Manager]]
 
 ** Installation
 
@@ -59,7 +61,14 @@ Install packages
 
 #+begin_src sh
 nix-env -iA \
-	nixpkgs.stow
+	nixpkgs.stow \
+	nixpkgs.git \
+	nixpkgs.openfortivpn \
+	nixpkgs.alacritty \
+	nixpkgs.emacs \
+	nixpkgs.vim \
+	nixpkgs.neovim \
+    nixpkgs.jetbrains.idea-ultimate
 #+end_src
 
 **** Stow
@@ -68,12 +77,42 @@ Stow dotfiles into the correct location
 
 #+begin_src sh
 stow allacritty
-[ `uname -s` = 'Linux' ] && stow awesome
-stow doom
-stow git
-stow nvim
-[ `uname -s` = 'Darwin' ] && stow tmux
-stow vim
-stow X11
 stow zsh
+[ `uname -s` = 'Linux' ] && stow awesome && stow X11
+[ `uname -s` = 'Darwin' ] && stow tmux
+stow git
+stow doom
+stow nvim
+stow vim
+#+end_src
+
+**** Homebrew
+
+Install Homebrew if we are on macOS.
+
+#+begin_src sh
+if [ `uname -s` = 'Darwin' ];
+then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+#+end_src
+
+Install MacOs only packages
+
+#+begin_src sh
+if [ `uname -s` = 'Darwin' ];
+then
+    brew install --cask \
+        raycast \
+        sequel-ace \
+        stats
+fi
+#+end_src
+
+**** SDKMAN
+
+Install SDKMAN
+
+#+begin_src sh
+curl -s "https://get.sdkman.io" | bash
 #+end_src
