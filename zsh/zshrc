@@ -1,0 +1,197 @@
+# Kiro CLI pre block. Keep at the top of this file.
+# [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+
+# zmodload zsh/zprof
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zi light-mode for \
+   zdharma-continuum/zinit-annex-as-monitor \
+   zdharma-continuum/zinit-annex-bin-gem-node \
+   zdharma-continuum/zinit-annex-patch-dl \
+   zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+
+# Export ZINIT_HOME
+export ZINIT_HOME=$HOME/.local/share/zinit/
+
+# Load Prompt
+zi light spaceship-prompt/spaceship-prompt
+
+# Load OMZ common aliases plugin
+zi snippet OMZP::common-aliases
+
+# Load OMZ directories lib with more aliases
+zi snippet OMZL::directories.zsh
+
+# Load OMZ git plugin with git aliases
+zi snippet OMZP::git
+
+setopt multios              # enable redirect to multiple streams: echo >file1 >file2
+setopt long_list_jobs       # show long list format job notifications
+setopt interactivecomments  # recognize comments
+
+## super user alias
+alias _='sudo '
+
+unalias rm
+
+# Fish shell like syntax highlighting for Zsh
+zi load zsh-users/zsh-syntax-highlighting
+
+# ZSH port of Fish shell's history search feature
+zi load zsh-users/zsh-history-substring-search
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=black,fg=white,bold'
+HISTORY_SUBSTRING_SEARCH_PREFIXED="false"
+
+# Fish-like autosuggestions for zsh
+zi load zsh-users/zsh-autosuggestions
+
+# Additional completion definitions for Zsh
+zi ice wait lucid
+zi load zsh-users/zsh-completions
+
+# Additional docker completion definitions for Zsh
+zi ice wait lucid
+zi load greymd/docker-zsh-completion
+
+# A zsh plugin to help remembering those aliases you defined once
+zi ice wait lucid
+zi load djui/alias-tips
+
+# Easy setup of cdr for zsh
+zi ice wait lucid
+zi load willghatch/zsh-cdr
+
+# zsh anything.el-like widget
+zi ice wait lucid
+zi load zsh-users/zaw
+
+# A modified version of oh-my-zsh's plugin colored-man-pages, optimized for solarized dark theme in terminal
+zi ice wait lucid
+zi load zlsun/solarized-man
+
+# Dir colors for the jellybeans theme
+zi ice wait lucid
+zi load tdwyer/dircolors-jellybeans
+
+## Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v
+export CACHE_DIR="${HOME}/.cache"
+[[ ! -d "${CACHE_DIR}" ]] && mkdir -p "${CACHE_DIR}"
+fasd_cache="${CACHE_DIR}/fasd-init-cache"
+
+zi ice wait lucid as"command" atclone"./fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $fasd_cache" atpull"%atclone"
+zi load clvv/fasd
+
+### fasd
+source "$fasd_cache"
+unset fasd_cache
+
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=yellow'
+
+# bind ctrl+space to accept current suggestion
+bindkey '^ ' autosuggest-accept
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+## bind ctrl+r to fzf history
+zle -N fh
+bindkey '^r' fh
+## bind alt+r to fzf history with edit
+zle -N fhe
+bindkey '^[r' fhe
+
+#bindkey '^[[A' history-substring-search-up
+#bindkey '^[[B' history-substring-search-down
+
+bindkey "^?" backward-delete-char
+
+bindkey "^K" kill-line
+
+## User configuration
+
+autoload -U compinit
+compinit
+
+zstyle ':completion:*' menu select
+
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}' 'r:|=*' 'l:|=* r:|=*'
+
+# Enable colorized output
+export CLICOLOR=1
+
+# $LS_COLORS generation via dircolors
+# eval $(gdircolors "$ZINIT_HOME/plugins/tdwyer---dircolors-jellybeans/dircolors.ansi")
+
+# Use $LS_COLORS for the completion list
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Ambient variables
+export EDITOR="nvim"
+export BROWSER="google-chrome-stable"
+
+CASE_SENSITIVE="false"
+
+zle -N s{,}
+bindkey ^f s
+
+#Load extra config files
+for file in $HOME/.zsh/*.zsh; do
+  source "$file";
+done
+
+#DOOM
+# PATH="$HOME/.config/emacs/bin:$PATH"
+
+#AWS
+export AWS_PROFILE=openvia_stage
+
+## aws cli completion start
+#autoload bashcompinit && bashcompinit
+## aws cli completion end
+
+## pip zsh completion start
+##function _pip_completion {
+  ##local words cword
+  ##read -Ac words
+  ##read -cn cword
+  ##reply=( $( COMP_WORDS="$words[*]" \
+    ##COMP_CWORD=$(( cword-1 )) \
+    ##PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
+  ##}
+  ##compctl -K _pip_completion pip
+  ### pip zsh completion end
+  #eval "$(pyenv init -)"
+
+  ##export OPENER=open
+
+  ##export PATH="$HOME/.rbenv/bin:$PATH"
+  ##eval "$(rbenv init - zsh)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/joao.loureiro/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# zprof
+
+
+# Kiro CLI post block. Keep at the bottom of this file.
+# [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+
+eval "$(mise activate zsh)"

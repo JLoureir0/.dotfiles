@@ -1,0 +1,6 @@
+theme = Monokai Pro
+font-family = CaskaydiaCove Nerd Font Mono
+font-style = Bold
+font-size = 19
+window-decoration = none
+macos-option-as-alt = true

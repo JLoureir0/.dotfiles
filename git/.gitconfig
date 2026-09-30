@@ -1,9 +1,0 @@
-[user]
-	email = joao.loureiro@mindera.com
-	name = João Loureiro
-[github]
-	user = JLoureir0
-[credential]
-	helper = store
-[pull]
-	rebase = false

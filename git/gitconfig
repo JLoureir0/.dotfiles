@@ -1,0 +1,19 @@
+[user]
+	email = joao.loureiro@mindera.com
+	name = João Loureiro
+[github]
+	user = JLoureir0
+[credential]
+	helper = store
+[pull]
+	rebase = false
+[http]
+	postBuffer = 157286400
+[diff]
+	tool = nvimdiff
+[merge]
+  tool = nvim
+[mergetool "nvim"]
+  cmd = nvim -c "DiffviewOpen"
+[mergetool]
+  prompt = false
